@@ -12,7 +12,22 @@
 		DB77A371282491A3005828F6 /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB77A370282491A3005828F6 /* CharactersViewController.swift */; };
 		DB77A376282491A5005828F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB77A375282491A5005828F6 /* Assets.xcassets */; };
 		DB77A379282491A5005828F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB77A377282491A5005828F6 /* LaunchScreen.storyboard */; };
-		DB77A384282491A5005828F6 /* IntoTheMultiverseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB77A383282491A5005828F6 /* IntoTheMultiverseTests.swift */; };
+		DB77A384282491A5005828F6 /* NetworkProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB77A383282491A5005828F6 /* NetworkProviderTests.swift */; };
+		DB7D90E32826D102006D5AF4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90E22826D102006D5AF4 /* NetworkService.swift */; };
+		DB7D90E52826D10F006D5AF4 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90E42826D10F006D5AF4 /* MockNetworkService.swift */; };
+		DB7D90E72826D1A3006D5AF4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90E22826D102006D5AF4 /* NetworkService.swift */; };
+		DB7D90E92826D4AB006D5AF4 /* CryptoKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90E82826D4AB006D5AF4 /* CryptoKitHelper.swift */; };
+		DB7D90EC2826D936006D5AF4 /* ComicCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90EB2826D936006D5AF4 /* ComicCharacter.swift */; };
+		DB7D90EE2826D98D006D5AF4 /* ComicCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90EB2826D936006D5AF4 /* ComicCharacter.swift */; };
+		DB7D90F02826DBD4006D5AF4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90EF2826DBD4006D5AF4 /* Constants.swift */; };
+		DB7D90F22826F8DC006D5AF4 /* characters.json in Resources */ = {isa = PBXBuildFile; fileRef = DB7D90F12826F8DC006D5AF4 /* characters.json */; };
+		DB7D90F52827188E006D5AF4 /* CharacterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90F42827188E006D5AF4 /* CharacterResponse.swift */; };
+		DB7D90F7282718D1006D5AF4 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90F6282718D1006D5AF4 /* ResponseData.swift */; };
+		DB7D90F8282719AA006D5AF4 /* CharacterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90F42827188E006D5AF4 /* CharacterResponse.swift */; };
+		DB7D90F9282719AC006D5AF4 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90F6282718D1006D5AF4 /* ResponseData.swift */; };
+		DB7D90FA28271A14006D5AF4 /* characters.json in Resources */ = {isa = PBXBuildFile; fileRef = DB7D90F12826F8DC006D5AF4 /* characters.json */; };
+		DB7D90FC28271D7D006D5AF4 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90FB28271D7D006D5AF4 /* NetworkProvider.swift */; };
+		DB7D90FD28271D7E006D5AF4 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90FB28271D7D006D5AF4 /* NetworkProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +49,16 @@
 		DB77A378282491A5005828F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB77A37A282491A5005828F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB77A37F282491A5005828F6 /* IntoTheMultiverseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntoTheMultiverseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB77A383282491A5005828F6 /* IntoTheMultiverseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntoTheMultiverseTests.swift; sourceTree = "<group>"; };
+		DB77A383282491A5005828F6 /* NetworkProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProviderTests.swift; sourceTree = "<group>"; };
+		DB7D90E22826D102006D5AF4 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		DB7D90E42826D10F006D5AF4 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
+		DB7D90E82826D4AB006D5AF4 /* CryptoKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoKitHelper.swift; sourceTree = "<group>"; };
+		DB7D90EB2826D936006D5AF4 /* ComicCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCharacter.swift; sourceTree = "<group>"; };
+		DB7D90EF2826DBD4006D5AF4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DB7D90F12826F8DC006D5AF4 /* characters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = characters.json; sourceTree = "<group>"; };
+		DB7D90F42827188E006D5AF4 /* CharacterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterResponse.swift; sourceTree = "<group>"; };
+		DB7D90F6282718D1006D5AF4 /* ResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
+		DB7D90FB28271D7D006D5AF4 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,10 +102,13 @@
 			children = (
 				DB77A36C282491A3005828F6 /* AppDelegate.swift */,
 				DB77A36E282491A3005828F6 /* SceneDelegate.swift */,
-				DB77A39C28249488005828F6 /* Views */,
 				DB77A375282491A5005828F6 /* Assets.xcassets */,
 				DB77A377282491A5005828F6 /* LaunchScreen.storyboard */,
 				DB77A37A282491A5005828F6 /* Info.plist */,
+				DB77A39C28249488005828F6 /* Views */,
+				DB7D90ED2826D968006D5AF4 /* Model */,
+				DB7D90E62826D113006D5AF4 /* NetworkService */,
+				DB7D90EA2826D79E006D5AF4 /* Resources */,
 			);
 			path = IntoTheMultiverse;
 			sourceTree = "<group>";
@@ -89,7 +116,8 @@
 		DB77A382282491A5005828F6 /* IntoTheMultiverseTests */ = {
 			isa = PBXGroup;
 			children = (
-				DB77A383282491A5005828F6 /* IntoTheMultiverseTests.swift */,
+				DB7D90F32826F8E0006D5AF4 /* MockData */,
+				DB77A383282491A5005828F6 /* NetworkProviderTests.swift */,
 			);
 			path = IntoTheMultiverseTests;
 			sourceTree = "<group>";
@@ -100,6 +128,43 @@
 				DB77A370282491A3005828F6 /* CharactersViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DB7D90E62826D113006D5AF4 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				DB7D90E22826D102006D5AF4 /* NetworkService.swift */,
+				DB7D90FB28271D7D006D5AF4 /* NetworkProvider.swift */,
+				DB7D90E42826D10F006D5AF4 /* MockNetworkService.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		DB7D90EA2826D79E006D5AF4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DB7D90E82826D4AB006D5AF4 /* CryptoKitHelper.swift */,
+				DB7D90EF2826DBD4006D5AF4 /* Constants.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DB7D90ED2826D968006D5AF4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB7D90EB2826D936006D5AF4 /* ComicCharacter.swift */,
+				DB7D90F42827188E006D5AF4 /* CharacterResponse.swift */,
+				DB7D90F6282718D1006D5AF4 /* ResponseData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DB7D90F32826F8E0006D5AF4 /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				DB7D90F12826F8DC006D5AF4 /* characters.json */,
+			);
+			path = MockData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB7D90FA28271A14006D5AF4 /* characters.json in Resources */,
 				DB77A379282491A5005828F6 /* LaunchScreen.storyboard in Resources */,
 				DB77A376282491A5005828F6 /* Assets.xcassets in Resources */,
 			);
@@ -192,6 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB7D90F22826F8DC006D5AF4 /* characters.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +271,14 @@
 			files = (
 				DB77A371282491A3005828F6 /* CharactersViewController.swift in Sources */,
 				DB77A36D282491A3005828F6 /* AppDelegate.swift in Sources */,
+				DB7D90E32826D102006D5AF4 /* NetworkService.swift in Sources */,
+				DB7D90EC2826D936006D5AF4 /* ComicCharacter.swift in Sources */,
+				DB7D90F7282718D1006D5AF4 /* ResponseData.swift in Sources */,
+				DB7D90F02826DBD4006D5AF4 /* Constants.swift in Sources */,
 				DB77A36F282491A3005828F6 /* SceneDelegate.swift in Sources */,
+				DB7D90F52827188E006D5AF4 /* CharacterResponse.swift in Sources */,
+				DB7D90E92826D4AB006D5AF4 /* CryptoKitHelper.swift in Sources */,
+				DB7D90FC28271D7D006D5AF4 /* NetworkProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,7 +286,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB77A384282491A5005828F6 /* IntoTheMultiverseTests.swift in Sources */,
+				DB7D90FD28271D7E006D5AF4 /* NetworkProvider.swift in Sources */,
+				DB7D90E52826D10F006D5AF4 /* MockNetworkService.swift in Sources */,
+				DB7D90E72826D1A3006D5AF4 /* NetworkService.swift in Sources */,
+				DB7D90F8282719AA006D5AF4 /* CharacterResponse.swift in Sources */,
+				DB77A384282491A5005828F6 /* NetworkProviderTests.swift in Sources */,
+				DB7D90F9282719AC006D5AF4 /* ResponseData.swift in Sources */,
+				DB7D90EE2826D98D006D5AF4 /* ComicCharacter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
