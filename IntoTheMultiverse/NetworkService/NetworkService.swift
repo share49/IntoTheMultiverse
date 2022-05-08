@@ -11,7 +11,21 @@ struct NetworkService: NetworkProvider {
     
     // MARK: - NetworkProvider
     
-    func getCharacters(using session: URLSession) async throws -> [ComicCharacter] {
-        []
+    func getCharacters() async throws -> [ComicCharacter] {
+        do {
+            let requiredQueryItems = try Endpoint.buildRequiredQueryItems()
+            let url = Endpoint.comicCharacters(with: requiredQueryItems).url
+            let characterResponse: CharacterResponse = try await getAndDecode(url: url)
+            return characterResponse.data.comicCharacters
+        } catch {
+            throw error
+        }
+    }
+    
+    // MARK: - Support methods
+    
+    private func getAndDecode<T: Decodable>(url: URL) async throws -> T {
+        let (data, _) = try await URLSession.shared.data(from: url)
+        return try decode(data: data)
     }
 }

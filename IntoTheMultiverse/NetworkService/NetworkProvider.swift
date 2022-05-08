@@ -9,7 +9,7 @@ import Foundation
 
 protocol NetworkProvider {
     
-    func getCharacters(using session: URLSession) async throws -> [ComicCharacter]
+    func getCharacters() async throws -> [ComicCharacter]
 }
 
 extension NetworkProvider {
