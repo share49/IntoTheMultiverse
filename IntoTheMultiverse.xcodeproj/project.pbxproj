@@ -37,6 +37,7 @@
 		DB7D910828287207006D5AF4 /* CharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90FE28272810006D5AF4 /* CharactersViewModel.swift */; };
 		DB7D910A28287414006D5AF4 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D910928287414006D5AF4 /* Router.swift */; };
 		DB7D910C28287453006D5AF4 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D910B28287453006D5AF4 /* Destination.swift */; };
+		DB7D911128287FC4006D5AF4 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D911028287FC4006D5AF4 /* EndpointTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		DB7D9106282871DF006D5AF4 /* CharactersViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModelTests.swift; sourceTree = "<group>"; };
 		DB7D910928287414006D5AF4 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		DB7D910B28287453006D5AF4 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
+		DB7D911028287FC4006D5AF4 /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			children = (
 				DB7D90F32826F8E0006D5AF4 /* MockData */,
 				DB77A383282491A5005828F6 /* NetworkProviderTests.swift */,
+				DB7D911028287FC4006D5AF4 /* EndpointTests.swift */,
 				DB7D9106282871DF006D5AF4 /* CharactersViewModelTests.swift */,
 			);
 			path = IntoTheMultiverseTests;
@@ -325,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB7D911128287FC4006D5AF4 /* EndpointTests.swift in Sources */,
 				DB7D910828287207006D5AF4 /* CharactersViewModel.swift in Sources */,
 				DB7D90FD28271D7E006D5AF4 /* NetworkProvider.swift in Sources */,
 				DB7D90E52826D10F006D5AF4 /* MockNetworkService.swift in Sources */,

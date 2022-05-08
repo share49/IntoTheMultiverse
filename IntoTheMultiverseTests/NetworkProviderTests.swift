@@ -34,23 +34,4 @@ class NetworkProviderTests: XCTestCase {
             XCTFail()
         }
     }
-    
-    // MARK: - Endpoints
-    
-    func testComicCharactersEndpoint() {
-        do {
-            let date = Date(timeIntervalSince1970: 10)
-            let mockApiPrivateKey = "1234"
-            let mockApiPublicKey = "5678"
-            let queryItems = try Endpoint.buildRequiredQueryItems(for: date, privateKey: mockApiPrivateKey, publicKey: mockApiPublicKey)
-            let endpoint = Endpoint.comicCharacters(with: queryItems)
-
-            let timestamp = date.timeIntervalSince1970
-            let stringUrl = "https://gateway.marvel.com/v1/public/characters?ts=\(timestamp)&apikey=\(mockApiPublicKey)&hash=cbb69d600ef72467747f0842290684ad"
-            let expectedUrl = URL(string: stringUrl)
-            XCTAssertEqual(endpoint.url, expectedUrl)
-        } catch {
-            XCTFail("Unable to build endpoint")
-        }
-    }
 }

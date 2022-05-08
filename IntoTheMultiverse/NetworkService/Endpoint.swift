@@ -33,6 +33,10 @@ struct Endpoint {
         Endpoint(path: k.API.Path.characters, queryItems: queryItems)
     }
     
+    static func comicCharacter(for id: Int, with queryItems: [URLQueryItem]) -> Self {
+        Endpoint(path: "\(k.API.Path.characters)/\(id)", queryItems: queryItems)
+    }
+    
     // MARK: - Support methods
     
     static func buildRequiredQueryItems(for date: Date = Date(),
