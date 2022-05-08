@@ -10,6 +10,7 @@ import Foundation
 protocol NetworkProvider {
     
     func getCharacters() async throws -> [ComicCharacter]
+    func getCharacter(for id: Int) async throws -> ComicCharacter
 }
 
 extension NetworkProvider {

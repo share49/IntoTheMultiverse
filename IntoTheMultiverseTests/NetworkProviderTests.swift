@@ -34,4 +34,15 @@ class NetworkProviderTests: XCTestCase {
             XCTFail()
         }
     }
+    
+    func testGetCharacterForId() async throws {
+        do {
+            let characterId = 1011334
+            let character = try await mockNetworkService.getCharacter(for: characterId)
+            XCTAssertEqual(character.id, characterId)
+            XCTAssertEqual(character.name, "3-D Man")
+        } catch {
+            XCTFail()
+        }
+    }
 }

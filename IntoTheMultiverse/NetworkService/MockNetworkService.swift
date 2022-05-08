@@ -11,6 +11,7 @@ struct MockNetworkService: NetworkProvider {
     
     enum NetworkProviderError: Error {
         case invalidFilePath
+        case emptyCharactersArray
     }
     
     // MARK: - NetworkProvider
@@ -18,6 +19,16 @@ struct MockNetworkService: NetworkProvider {
     func getCharacters() async throws -> [ComicCharacter] {
         let characterResponse: CharacterResponse = try await loadMockData(for: "characters", ofType: "json")
         return characterResponse.data.comicCharacters
+    }
+    
+    func getCharacter(for id: Int) async throws -> ComicCharacter {
+        let characterResponse: CharacterResponse = try await loadMockData(for: "character", ofType: "json")
+        
+        guard let firstCharacter = characterResponse.data.comicCharacters.first else {
+            throw NetworkProviderError.emptyCharactersArray
+        }
+        
+        return firstCharacter
     }
     
     // MARK: - Support methods

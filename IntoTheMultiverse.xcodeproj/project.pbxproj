@@ -38,6 +38,8 @@
 		DB7D910A28287414006D5AF4 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D910928287414006D5AF4 /* Router.swift */; };
 		DB7D910C28287453006D5AF4 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D910B28287453006D5AF4 /* Destination.swift */; };
 		DB7D911128287FC4006D5AF4 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D911028287FC4006D5AF4 /* EndpointTests.swift */; };
+		DB7D91132828858D006D5AF4 /* character.json in Resources */ = {isa = PBXBuildFile; fileRef = DB7D91122828858D006D5AF4 /* character.json */; };
+		DB7D9114282886A2006D5AF4 /* character.json in Resources */ = {isa = PBXBuildFile; fileRef = DB7D91122828858D006D5AF4 /* character.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,7 @@
 		DB7D910928287414006D5AF4 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		DB7D910B28287453006D5AF4 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		DB7D911028287FC4006D5AF4 /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
+		DB7D91122828858D006D5AF4 /* character.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = character.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				DB7D90F12826F8DC006D5AF4 /* characters.json */,
+				DB7D91122828858D006D5AF4 /* character.json */,
 			);
 			path = MockData;
 			sourceTree = "<group>";
@@ -289,6 +293,7 @@
 				DB7D90FA28271A14006D5AF4 /* characters.json in Resources */,
 				DB77A379282491A5005828F6 /* LaunchScreen.storyboard in Resources */,
 				DB77A376282491A5005828F6 /* Assets.xcassets in Resources */,
+				DB7D9114282886A2006D5AF4 /* character.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB7D90F22826F8DC006D5AF4 /* characters.json in Resources */,
+				DB7D91132828858D006D5AF4 /* character.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
