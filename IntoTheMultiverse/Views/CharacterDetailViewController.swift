@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import Kingfisher
 
 final class CharacterDetailViewController: UIViewController {
     
@@ -14,6 +15,8 @@ final class CharacterDetailViewController: UIViewController {
     
     private let viewModel: CharacterDetailViewModel
     private var subscriptions = Set<AnyCancellable>()
+    private let imageView = UIImageView()
+    private let lblDescription = UILabel()
     
     // MARK: - Initializer
     
@@ -62,9 +65,37 @@ final class CharacterDetailViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
+        setupImageView()
+        setupLabelDescription()
+    }
+    
+    private func setupImageView() {
+        view.addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        imageView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        imageView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
+    }
+    
+    private func setupLabelDescription() {
+        view.addSubview(lblDescription)
+        lblDescription.translatesAutoresizingMaskIntoConstraints = false
+        
+        lblDescription.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: k.UI.margin).isActive = true
+        lblDescription.leftAnchor.constraint(equalTo: view.leftAnchor, constant: k.UI.margin).isActive = true
+        lblDescription.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -k.UI.margin).isActive = true
+        
+        lblDescription.textAlignment = .justified
+        lblDescription.numberOfLines = 0
+        lblDescription.font = .preferredFont(forTextStyle: .body)
+        lblDescription.adjustsFontForContentSizeCategory = true
     }
     
     private func updateUI(with comicCharacter: ComicCharacter) {
         title = comicCharacter.name
+        imageView.kf.setImage(with: comicCharacter.thumbnail.url)
+        lblDescription.text = comicCharacter.description
     }
 }

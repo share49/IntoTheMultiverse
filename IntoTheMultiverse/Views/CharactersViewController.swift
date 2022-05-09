@@ -32,6 +32,7 @@ final class CharactersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
         setupTableView()
         setupBindings()
     }
@@ -54,6 +55,10 @@ final class CharactersViewController: UIViewController {
     }
     
     // MARK: - UI methods
+    
+    private func setupUI() {
+        title = k.UI.titleCharactersVC
+    }
     
     private func setupTableView() {
         view.addSubview(tableView)

@@ -45,6 +45,10 @@
 		DB7D911928288A1E006D5AF4 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D911728288A1E006D5AF4 /* CharacterDetailViewModel.swift */; };
 		DBBC142928298D15007F47F2 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC142828298D15007F47F2 /* RouterTests.swift */; };
 		DBBC142B28299AA9007F47F2 /* CharacterDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC142A28299AA9007F47F2 /* CharacterDetailViewModelTests.swift */; };
+		DBBC142D2829B01C007F47F2 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC142C2829B01C007F47F2 /* Thumbnail.swift */; };
+		DBBC14302829B440007F47F2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DBBC142F2829B440007F47F2 /* Kingfisher */; };
+		DBBC14342829CA01007F47F2 /* ThumbnailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC14332829CA01007F47F2 /* ThumbnailTests.swift */; };
+		DBBC14352829CA70007F47F2 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC142C2829B01C007F47F2 /* Thumbnail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +91,8 @@
 		DB7D911728288A1E006D5AF4 /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
 		DBBC142828298D15007F47F2 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		DBBC142A28299AA9007F47F2 /* CharacterDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModelTests.swift; sourceTree = "<group>"; };
+		DBBC142C2829B01C007F47F2 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
+		DBBC14332829CA01007F47F2 /* ThumbnailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBBC14302829B440007F47F2 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,11 +154,10 @@
 			isa = PBXGroup;
 			children = (
 				DB7D90F32826F8E0006D5AF4 /* MockData */,
-				DB77A383282491A5005828F6 /* NetworkProviderTests.swift */,
-				DB7D911028287FC4006D5AF4 /* EndpointTests.swift */,
-				DB7D9106282871DF006D5AF4 /* CharactersViewModelTests.swift */,
-				DBBC142A28299AA9007F47F2 /* CharacterDetailViewModelTests.swift */,
 				DBBC142828298D15007F47F2 /* RouterTests.swift */,
+				DBBC14332829CA01007F47F2 /* ThumbnailTests.swift */,
+				DBBC14322829C939007F47F2 /* NetworkServiceTests */,
+				DBBC14312829C931007F47F2 /* ViewModelTests */,
 			);
 			path = IntoTheMultiverseTests;
 			sourceTree = "<group>";
@@ -191,6 +197,7 @@
 				DB7D90EB2826D936006D5AF4 /* ComicCharacter.swift */,
 				DB7D90F42827188E006D5AF4 /* CharacterResponse.swift */,
 				DB7D90F6282718D1006D5AF4 /* ResponseData.swift */,
+				DBBC142C2829B01C007F47F2 /* Thumbnail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +229,24 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		DBBC14312829C931007F47F2 /* ViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				DB7D9106282871DF006D5AF4 /* CharactersViewModelTests.swift */,
+				DBBC142A28299AA9007F47F2 /* CharacterDetailViewModelTests.swift */,
+			);
+			path = ViewModelTests;
+			sourceTree = "<group>";
+		};
+		DBBC14322829C939007F47F2 /* NetworkServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				DB77A383282491A5005828F6 /* NetworkProviderTests.swift */,
+				DB7D911028287FC4006D5AF4 /* EndpointTests.swift */,
+			);
+			path = NetworkServiceTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -238,6 +263,9 @@
 			dependencies = (
 			);
 			name = IntoTheMultiverse;
+			packageProductDependencies = (
+				DBBC142F2829B440007F47F2 /* Kingfisher */,
+			);
 			productName = IntoTheMultiverse;
 			productReference = DB77A369282491A3005828F6 /* IntoTheMultiverse.app */;
 			productType = "com.apple.product-type.application";
@@ -288,6 +316,9 @@
 				Base,
 			);
 			mainGroup = DB77A360282491A3005828F6;
+			packageReferences = (
+				DBBC142E2829B440007F47F2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = DB77A36A282491A3005828F6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -326,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBBC142D2829B01C007F47F2 /* Thumbnail.swift in Sources */,
 				DB7D90FF28272810006D5AF4 /* CharactersViewModel.swift in Sources */,
 				DB77A371282491A3005828F6 /* CharactersViewController.swift in Sources */,
 				DB77A36D282491A3005828F6 /* AppDelegate.swift in Sources */,
@@ -356,12 +388,14 @@
 				DB7D91032828257E006D5AF4 /* Endpoint.swift in Sources */,
 				DBBC142B28299AA9007F47F2 /* CharacterDetailViewModelTests.swift in Sources */,
 				DB7D90E72826D1A3006D5AF4 /* NetworkService.swift in Sources */,
+				DBBC14342829CA01007F47F2 /* ThumbnailTests.swift in Sources */,
 				DB7D90F8282719AA006D5AF4 /* CharacterResponse.swift in Sources */,
 				DB7D911928288A1E006D5AF4 /* CharacterDetailViewModel.swift in Sources */,
 				DB7D910528282595006D5AF4 /* CryptoKitHelper.swift in Sources */,
 				DB77A384282491A5005828F6 /* NetworkProviderTests.swift in Sources */,
 				DBBC142928298D15007F47F2 /* RouterTests.swift in Sources */,
 				DB7D90F9282719AC006D5AF4 /* ResponseData.swift in Sources */,
+				DBBC14352829CA70007F47F2 /* Thumbnail.swift in Sources */,
 				DB7D9107282871DF006D5AF4 /* CharactersViewModelTests.swift in Sources */,
 				DB7D90EE2826D98D006D5AF4 /* ComicCharacter.swift in Sources */,
 				DB7D91042828258A006D5AF4 /* Constants.swift in Sources */,
@@ -629,6 +663,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DBBC142E2829B440007F47F2 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DBBC142F2829B440007F47F2 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBBC142E2829B440007F47F2 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DB77A361282491A3005828F6 /* Project object */;
 }

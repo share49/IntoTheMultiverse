@@ -5,9 +5,9 @@
 //  Created by Roger Pintó Diaz on 5/7/22.
 //
 
-import Foundation
+import UIKit
 
-/// Constants
+/// Global constants used in the app
 struct k {
     
     // MARK: - Networking constants
@@ -48,5 +48,8 @@ struct k {
             
             static let characterCell = "characterCell"
         }
+        
+        static let titleCharactersVC = "Comic characters"
+        static let margin: CGFloat = 12
     }
 }

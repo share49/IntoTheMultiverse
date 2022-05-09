@@ -14,10 +14,11 @@ struct ComicCharacter: Decodable {
     let id: Int
     let name: String
     let description: String
+    let thumbnail: Thumbnail
     
     // MARK: - Coding keys
     
     private enum CodingKeys: String, CodingKey {
-        case id, name, description
+        case id, name, description, thumbnail
     }
 }
