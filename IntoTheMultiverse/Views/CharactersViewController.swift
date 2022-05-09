@@ -69,6 +69,17 @@ final class CharactersViewController: UIViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: k.UI.Cells.characterCell)
     }
+    
+    // MARK: - Router methods
+    
+    private func showCharacterDetailView(for characterId: Int) {
+        guard let navigationController = navigationController else {
+            NSLog("Unable to get navigationController")
+            return
+        }
+        
+        Router(navigationController).navigate(to: .characterDetail(characterId: characterId))
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -91,6 +102,7 @@ extension CharactersViewController: UITableViewDataSource {
 extension CharactersViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //FixMe: Navigate to detail view
+        let characterId = viewModel.comicCharacters[indexPath.row].id
+        showCharacterDetailView(for: characterId)
     }
 }

@@ -9,11 +9,6 @@ import Foundation
 
 struct MockNetworkService: NetworkProvider {
     
-    enum NetworkProviderError: Error {
-        case invalidFilePath
-        case emptyCharactersArray
-    }
-    
     // MARK: - NetworkProvider
     
     func getCharacters() async throws -> [ComicCharacter] {

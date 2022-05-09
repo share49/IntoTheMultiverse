@@ -8,7 +8,7 @@
 import XCTest
 @testable import IntoTheMultiverse
 
-class NetworkProviderTests: XCTestCase {
+final class NetworkProviderTests: XCTestCase {
     
     // MARK: - Properties
 

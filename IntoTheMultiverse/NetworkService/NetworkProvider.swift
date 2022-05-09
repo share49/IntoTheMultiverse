@@ -7,6 +7,13 @@
 
 import Foundation
 
+enum NetworkProviderError: Error {
+    case emptyCharactersArray
+    
+    // MockNetworkService errors
+    case invalidFilePath
+}
+
 protocol NetworkProvider {
     
     func getCharacters() async throws -> [ComicCharacter]

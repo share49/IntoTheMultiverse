@@ -22,6 +22,22 @@ struct NetworkService: NetworkProvider {
         }
     }
     
+    func getCharacter(for id: Int) async throws -> ComicCharacter {
+        do {
+            let requiredQueryItems = try Endpoint.buildRequiredQueryItems()
+            let url = Endpoint.comicCharacter(for: id, with: requiredQueryItems).url
+            let characterResponse: CharacterResponse = try await getAndDecode(url: url)
+            
+            guard let comicCharacter = characterResponse.data.comicCharacters.first else {
+                throw NetworkProviderError.emptyCharactersArray
+            }
+            
+            return comicCharacter
+        } catch {
+            throw error
+        }
+    }
+    
     // MARK: - Support methods
     
     private func getAndDecode<T: Decodable>(url: URL) async throws -> T {

@@ -9,7 +9,7 @@ import UIKit
 
 protocol RouterProtocol {
     associatedtype Destination
-    func navigate(to destination: Destination)
+    func navigate(to destination: Destination, animated: Bool)
 }
 
 struct Router: RouterProtocol {
@@ -28,11 +28,9 @@ struct Router: RouterProtocol {
     // MARK: - Interface
     
     /// Pushes the selected destination view
-    func navigate(to destination: Destination) {
-        DispatchQueue.main.async {
-            let viewController = self.makeViewController(for: destination)
-            self.navigationController.pushViewController(viewController, animated: true)
-        }
+    func navigate(to destination: Destination, animated: Bool = true) {
+        let viewController = makeViewController(for: destination)
+        navigationController.pushViewController(viewController, animated: animated)
     }
     
     // MARK: - Support methods
@@ -47,6 +45,7 @@ struct Router: RouterProtocol {
     
     /// Creates CharacterDetailViewController for the character id
     private func getCharacterDetailVC(for characterId: Int) -> UIViewController {
-        UIViewController()
+        let viewModel = CharacterDetailViewModel(characterId: characterId)
+        return CharacterDetailViewController(with: viewModel)
     }
 }
