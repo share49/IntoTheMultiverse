@@ -11,14 +11,17 @@ import XCTest
 final class NetworkProviderTests: XCTestCase {
     
     // MARK: - Properties
-
+    
     private let mockNetworkService = MockNetworkService()
     
     // MARK: - Tests
-
+    
     func testGetCharacters() async throws {
         do {
+            // Act
             let characters = try await mockNetworkService.getCharacters()
+            
+            // Assert
             XCTAssertEqual(characters.count, 20)
             
             guard let firstCharacter = characters.first, let lastCharacter = characters.last else {
@@ -37,8 +40,13 @@ final class NetworkProviderTests: XCTestCase {
     
     func testGetCharacterForId() async throws {
         do {
+            // Arrange
             let characterId = 1011334
+            
+            // Act
             let character = try await mockNetworkService.getCharacter(for: characterId)
+            
+            // Assert
             XCTAssertEqual(character.id, characterId)
             XCTAssertEqual(character.name, "3-D Man")
         } catch {

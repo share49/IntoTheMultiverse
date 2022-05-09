@@ -9,10 +9,15 @@ import XCTest
 @testable import IntoTheMultiverse
 
 @MainActor class CharactersViewModelTests: XCTestCase {
-
+    
     func testLoadComicCharacters() async throws {
+        // Arrange
         let viewModel = CharactersViewModel(with: MockNetworkService())
+        
+        // Act
         await viewModel.loadComicCharacters()
+        
+        // Assert
         XCTAssertEqual(viewModel.comicCharacters.count, 20)
     }
 }
