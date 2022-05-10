@@ -9,6 +9,7 @@ import Foundation
 
 enum NetworkProviderError: Error {
     case emptyCharactersArray
+    case noConnection
     
     // MockNetworkService errors
     case invalidFilePath

@@ -41,7 +41,15 @@ struct NetworkService: NetworkProvider {
     // MARK: - Support methods
     
     private func getAndDecode<T: Decodable>(url: URL) async throws -> T {
-        let (data, _) = try await URLSession.shared.data(from: url)
-        return try decode(data: data)
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            return try decode(data: data)
+        } catch {
+            if (error as NSError).code == k.API.ErrorCodes.noConnection {
+                throw NetworkProviderError.noConnection
+            } else {
+                throw error
+            }
+        }
     }
 }

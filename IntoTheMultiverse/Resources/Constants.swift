@@ -33,13 +33,22 @@ struct k {
             static let apiKey = "apikey"
             static let hash = "hash"
         }
+        
+        struct ErrorCodes {
+            
+            static let noConnection = -1009 // No network connection
+        }
     }
+    
+    // MARK: - CryptoKit constants
     
     /// CryptoKit constants: String format
     struct CryptoKit {
         
         static let MD5StringFormat = "%02hhx"
     }
+    
+    // MARK: - UI constants
     
     /// UI constants: TableView cells
     struct UI {
@@ -49,9 +58,22 @@ struct k {
             static let characterCell = "characterCell"
         }
         
-        static let titleCharactersVC = "Comic characters"
         static let margin: CGFloat = 12
     }
+    
+    // MARK: - ViewsText constants
+    
+    /// Strings to be localized used in the views. E.g. title of a view controller, error messages..
+    struct ViewsText {
+        
+        static let titleCharactersVC = "Comic characters"
+        static let alertTitleError = "Error"
+        static let ok = "Ok"
+        static let networkErrorMessage = "Network connection error. Please check your connection and retry."
+        static let defaultErrorMessage = "Something happened. Please try again."
+    }
+    
+    // MARK: - EasterEgg constants
     
     /// EasterEgg constants: Variables to setup the EasterEgg SwiftUI view
     struct EasterEgg {

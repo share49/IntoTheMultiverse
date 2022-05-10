@@ -52,12 +52,21 @@ final class CharactersViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in self?.tableView.reloadData() }
             .store(in: &subscriptions)
+        
+        viewModel.$alertMessage
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] receivedValue in
+                if let message = receivedValue {
+                    self?.showAlert(with: message)
+                }
+            })
+            .store(in: &subscriptions)
     }
     
     // MARK: - UI methods
     
     private func setupUI() {
-        title = k.UI.titleCharactersVC
+        title = k.ViewsText.titleCharactersVC
     }
     
     private func setupTableView() {
@@ -73,6 +82,12 @@ final class CharactersViewController: UIViewController {
         tableView.delegate = self
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: k.UI.Cells.characterCell)
+    }
+    
+    private func showAlert(with message: String) {
+        let alertController = UIAlertController(title: k.ViewsText.alertTitleError, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: k.ViewsText.ok, style: .default))
+        present(alertController, animated: true)
     }
     
     // MARK: - Router methods

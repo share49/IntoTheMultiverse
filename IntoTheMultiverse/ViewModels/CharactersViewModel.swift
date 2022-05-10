@@ -13,6 +13,7 @@ import Foundation
     
     private let networkService: NetworkProvider
     @Published private(set) var comicCharacters = [ComicCharacter]()
+    @Published private(set) var alertMessage: String?
     
     // MARK: - Initializer
     
@@ -29,7 +30,11 @@ import Foundation
         
         do {
             comicCharacters = try await networkService.getCharacters()
+        } catch NetworkProviderError.noConnection {
+            alertMessage = k.ViewsText.networkErrorMessage
+            NSLog("CharactersViewModel: NetworkProviderError.noConnection")
         } catch {
+            alertMessage = k.ViewsText.defaultErrorMessage
             NSLog("CharactersViewModel: Error loading comic characters. \(error)")
         }
     }
