@@ -52,4 +52,13 @@ struct k {
         static let titleCharactersVC = "Comic characters"
         static let margin: CGFloat = 12
     }
+    
+    /// EasterEgg constants: Variables to setup the EasterEgg SwiftUI view
+    struct EasterEgg {
+        
+        static let imageUrl = "https://terrigen-cdn-dev.marvel.com/content/prod/1x/doctorstrangeinthemultiverseofmadness_lob_crd_02_3.jpg"
+        static let title = "Doctor Strange in the Multiverse of Madness (May 6, 2022)"
+        static let rotation: CGFloat = 360
+        static let rotationDuration: Double = 1
+    }
 }

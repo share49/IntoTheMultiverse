@@ -66,6 +66,7 @@ final class CharacterDetailViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .systemBackground
         setupImageView()
+        setupEasterEggInteraction()
         setupLabelDescription()
     }
     
@@ -97,5 +98,29 @@ final class CharacterDetailViewController: UIViewController {
         title = comicCharacter.name
         imageView.kf.setImage(with: comicCharacter.thumbnail.url)
         lblDescription.text = comicCharacter.description
+    }
+}
+
+// MARK: - EasterEgg
+
+extension CharacterDetailViewController {
+    private func setupEasterEggInteraction() {
+        let tapGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(showEasterEggView(_:)))
+        tapGestureRecognizer.minimumPressDuration = 3
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc private func showEasterEggView(_ gestureRecognizer: UILongPressGestureRecognizer) {
+        guard gestureRecognizer.state == .began else {
+            return
+        }
+        
+        guard let navigationController = navigationController else {
+            NSLog("Unable to get navigationController")
+            return
+        }
+        
+        Router(navigationController).navigate(to: .easterEggView)
     }
 }

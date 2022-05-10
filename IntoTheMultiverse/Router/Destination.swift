@@ -10,4 +10,5 @@ import Foundation
 enum Destination {
     
     case characterDetail(characterId: Int)
+    case easterEggView
 }

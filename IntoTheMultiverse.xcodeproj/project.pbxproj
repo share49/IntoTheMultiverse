@@ -49,6 +49,7 @@
 		DBBC14302829B440007F47F2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DBBC142F2829B440007F47F2 /* Kingfisher */; };
 		DBBC14342829CA01007F47F2 /* ThumbnailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC14332829CA01007F47F2 /* ThumbnailTests.swift */; };
 		DBBC14352829CA70007F47F2 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC142C2829B01C007F47F2 /* Thumbnail.swift */; };
+		DBBC14372829F79E007F47F2 /* EasterEggView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC14362829F79E007F47F2 /* EasterEggView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		DBBC142A28299AA9007F47F2 /* CharacterDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModelTests.swift; sourceTree = "<group>"; };
 		DBBC142C2829B01C007F47F2 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		DBBC14332829CA01007F47F2 /* ThumbnailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailTests.swift; sourceTree = "<group>"; };
+		DBBC14362829F79E007F47F2 /* EasterEggView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasterEggView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 			children = (
 				DB77A370282491A3005828F6 /* CharactersViewController.swift */,
 				DB7D9115282889F8006D5AF4 /* CharacterDetailViewController.swift */,
+				DBBC14362829F79E007F47F2 /* EasterEggView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				DB7D90F52827188E006D5AF4 /* CharacterResponse.swift in Sources */,
 				DB7D9116282889F8006D5AF4 /* CharacterDetailViewController.swift in Sources */,
 				DB7D90E92826D4AB006D5AF4 /* CryptoKitHelper.swift in Sources */,
+				DBBC14372829F79E007F47F2 /* EasterEggView.swift in Sources */,
 				DB7D910228272AF6006D5AF4 /* Endpoint.swift in Sources */,
 				DB7D90FC28271D7D006D5AF4 /* NetworkProvider.swift in Sources */,
 				DB7D910A28287414006D5AF4 /* Router.swift in Sources */,

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 protocol RouterProtocol {
     associatedtype Destination
@@ -40,6 +41,9 @@ struct Router: RouterProtocol {
         switch destination {
         case .characterDetail(let characterId):
             return getCharacterDetailVC(for: characterId)
+            
+        case .easterEggView:
+            return getEasterEggView()
         }
     }
     
@@ -47,5 +51,10 @@ struct Router: RouterProtocol {
     private func getCharacterDetailVC(for characterId: Int) -> UIViewController {
         let viewModel = CharacterDetailViewModel(characterId: characterId)
         return CharacterDetailViewController(with: viewModel)
+    }
+    
+    /// Creates a HostingController to show the SwiftUI view
+    private func getEasterEggView() -> UIViewController {
+        UIHostingController(rootView: EasterEggView())
     }
 }
