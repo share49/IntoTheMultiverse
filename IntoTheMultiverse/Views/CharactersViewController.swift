@@ -39,6 +39,8 @@ final class CharactersViewController: UIViewController, ActivityPresentable, Err
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        deselectTableViewRow()
+        
         Task {
             await viewModel.loadComicCharacters()
         }
@@ -93,6 +95,14 @@ final class CharactersViewController: UIViewController, ActivityPresentable, Err
     
     private func updateActivityIndicatorState(isLoading: Bool) {
         isLoading ? showActivityIndicator() : hideActivityIndicator()
+    }
+    
+    private func deselectTableViewRow() {
+        guard let indexPathForSelectedRow = tableView.indexPathForSelectedRow else {
+            return
+        }
+        
+        tableView.deselectRow(at: indexPathForSelectedRow, animated: true)
     }
     
     // MARK: - Router methods
