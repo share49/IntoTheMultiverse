@@ -18,17 +18,17 @@ struct EasterEggView: View {
     
     var body: some View {
         VStack {
-            Text(k.EasterEgg.title)
+            Text(Constants.EasterEgg.title)
                 .font(.title)
             
-            KFImage(URL(string: k.EasterEgg.imageUrl))
+            KFImage(URL(string: Constants.EasterEgg.imageUrl))
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .onAppear {
-                    angle += k.EasterEgg.rotation
+                    angle += Constants.EasterEgg.rotation
                 }
                 .rotationEffect(.degrees(angle))
-                .animation(.easeIn(duration: k.EasterEgg.rotationDuration), value: angle)
+                .animation(.easeIn(duration: Constants.EasterEgg.rotationDuration), value: angle)
             
             Spacer()
         }

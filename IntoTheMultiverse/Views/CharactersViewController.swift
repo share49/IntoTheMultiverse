@@ -72,7 +72,7 @@ final class CharactersViewController: UIViewController, ActivityPresentable, Err
     
     /// Setup View and TableView
     private func setupUI() {
-        title = k.ViewsText.titleCharactersVC
+        title = Constants.ViewsText.titleCharactersVC
         setupTableView()
     }
     
@@ -88,7 +88,7 @@ final class CharactersViewController: UIViewController, ActivityPresentable, Err
         tableView.dataSource = self
         tableView.delegate = self
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: k.UI.Cells.characterCell)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.UI.Cells.characterCell)
     }
     
     private func updateActivityIndicatorState(isLoading: Bool) {
@@ -118,7 +118,7 @@ extension CharactersViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: k.UI.Cells.characterCell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.UI.Cells.characterCell, for: indexPath)
         cell.textLabel?.text = viewModel.getCharacterName(for: indexPath)
         return cell
     }

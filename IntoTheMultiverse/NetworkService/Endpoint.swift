@@ -15,8 +15,8 @@ struct Endpoint {
     var queryItems = [URLQueryItem]()
     var url: URL {
         var components = URLComponents()
-        components.scheme = k.API.scheme
-        components.host = k.API.host
+        components.scheme = Constants.API.scheme
+        components.host = Constants.API.host
         components.path = "/" + path
         components.queryItems = queryItems
 
@@ -30,26 +30,26 @@ struct Endpoint {
     // MARK: - Endpoints
 
     static func comicCharacters(with queryItems: [URLQueryItem]) -> Self {
-        Endpoint(path: k.API.Path.characters, queryItems: queryItems)
+        Endpoint(path: Constants.API.Path.characters, queryItems: queryItems)
     }
     
     static func comicCharacter(for id: Int, with queryItems: [URLQueryItem]) -> Self {
-        Endpoint(path: "\(k.API.Path.characters)/\(id)", queryItems: queryItems)
+        Endpoint(path: "\(Constants.API.Path.characters)/\(id)", queryItems: queryItems)
     }
     
     // MARK: - Support methods
     
     static func buildRequiredQueryItems(for date: Date = Date(),
-                                        privateKey: String = k.API.privateKey,
-                                        publicKey: String = k.API.publicKey) throws -> [URLQueryItem] {
+                                        privateKey: String = Constants.API.privateKey,
+                                        publicKey: String = Constants.API.publicKey) throws -> [URLQueryItem] {
         let timestamp = "\(date.timeIntervalSince1970)"
         let stringToHash = "\(timestamp)\(privateKey)\(publicKey)"
         let hash = try CryptoKitHelper.MD5(string: stringToHash)
         
         let queryItems = [
-            URLQueryItem(name: k.API.QueryItems.timestamp, value: timestamp),
-            URLQueryItem(name: k.API.QueryItems.apiKey, value: publicKey),
-            URLQueryItem(name: k.API.QueryItems.hash, value: hash)
+            URLQueryItem(name: Constants.API.QueryItems.timestamp, value: timestamp),
+            URLQueryItem(name: Constants.API.QueryItems.apiKey, value: publicKey),
+            URLQueryItem(name: Constants.API.QueryItems.hash, value: hash)
         ]
         
         return queryItems

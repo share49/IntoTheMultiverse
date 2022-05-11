@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class CharacterDetailViewModel: ObservableObject {
+final class CharacterDetailViewModel {
 
     // MARK: - Properties
     
@@ -31,10 +31,10 @@ final class CharacterDetailViewModel: ObservableObject {
             isLoading = true
             comicCharacter = try await networkService.getCharacter(for: characterId)
         } catch NetworkProviderError.noConnection {
-            alertMessage = k.ViewsText.networkErrorMessage
+            alertMessage = Constants.ViewsText.networkErrorMessage
             NSLog("CharacterDetailViewModel: NetworkProviderError.noConnection")
         } catch {
-            alertMessage = k.ViewsText.defaultErrorMessage
+            alertMessage = Constants.ViewsText.defaultErrorMessage
             NSLog("CharacterDetailViewModel: Error loading comic character. \(error)")
         }
         

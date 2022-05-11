@@ -24,6 +24,6 @@ struct CryptoKitHelper {
         
         #warning("MD5 is considered insecure. Replace when API updates.")
         let digest = Insecure.MD5.hash(data: data)
-        return digest.map { String(format: k.CryptoKit.MD5StringFormat, $0) }.joined()
+        return digest.map { String(format: Constants.CryptoKit.MD5StringFormat, $0) }.joined()
     }
 }

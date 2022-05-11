@@ -33,6 +33,6 @@ final class CharacterDetailViewModelTests: XCTestCase {
         await viewModel.loadComicCharacter()
         
         // Assert
-        XCTAssertEqual(viewModel.alertMessage, k.ViewsText.defaultErrorMessage)
+        XCTAssertEqual(viewModel.alertMessage, Constants.ViewsText.defaultErrorMessage)
     }
 }

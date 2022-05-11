@@ -15,7 +15,7 @@ struct Thumbnail: Decodable {
     let fileExtension: String
     var url: URL? {
         var urlComponents = URLComponents(string: "\(path).\(fileExtension)")
-        urlComponents?.scheme = k.API.scheme
+        urlComponents?.scheme = Constants.API.scheme
         return urlComponents?.url
     }
     

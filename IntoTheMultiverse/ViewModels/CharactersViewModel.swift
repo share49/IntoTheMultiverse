@@ -33,10 +33,10 @@ import Foundation
             isLoading = true
             comicCharacters = try await networkService.getCharacters()
         } catch NetworkProviderError.noConnection {
-            alertMessage = k.ViewsText.networkErrorMessage
+            alertMessage = Constants.ViewsText.networkErrorMessage
             NSLog("CharactersViewModel: NetworkProviderError.noConnection")
         } catch {
-            alertMessage = k.ViewsText.defaultErrorMessage
+            alertMessage = Constants.ViewsText.defaultErrorMessage
             NSLog("CharactersViewModel: Error loading comic characters. \(error)")
         }
         

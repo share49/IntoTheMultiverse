@@ -40,7 +40,7 @@ struct NetworkService: NetworkProvider {
             let (data, _) = try await URLSession.shared.data(from: url)
             return try decode(data: data)
         } catch {
-            if (error as NSError).code == k.API.ErrorCodes.noConnection {
+            if (error as NSError).code == Constants.API.ErrorCodes.noConnection {
                 throw NetworkProviderError.noConnection
             } else {
                 throw error

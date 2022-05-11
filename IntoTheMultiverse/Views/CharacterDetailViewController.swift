@@ -93,9 +93,9 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
         view.addSubview(lblDescription)
         lblDescription.translatesAutoresizingMaskIntoConstraints = false
         
-        lblDescription.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: k.UI.margin).isActive = true
-        lblDescription.leftAnchor.constraint(equalTo: view.leftAnchor, constant: k.UI.margin).isActive = true
-        lblDescription.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -k.UI.margin).isActive = true
+        lblDescription.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: Constants.UI.margin).isActive = true
+        lblDescription.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Constants.UI.margin).isActive = true
+        lblDescription.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -Constants.UI.margin).isActive = true
         
         lblDescription.textAlignment = .justified
         lblDescription.numberOfLines = 0

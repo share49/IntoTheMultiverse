@@ -14,7 +14,7 @@ protocol ActivityPresentable {
 
 extension ActivityPresentable where Self: UIViewController {
     
-    func showActivityIndicator(topDistance: CGFloat = k.UI.margin) {
+    func showActivityIndicator(topDistance: CGFloat = Constants.UI.margin) {
         if let activityIndicator = findActivityIndicator() {
             activityIndicator.startAnimating()
         } else {

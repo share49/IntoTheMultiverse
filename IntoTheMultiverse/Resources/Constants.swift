@@ -8,7 +8,7 @@
 import UIKit
 
 /// Global constants used in the app
-struct k {
+struct Constants {
     
     // MARK: - Networking constants
     
