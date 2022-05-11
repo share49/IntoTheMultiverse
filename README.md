@@ -3,6 +3,7 @@
 ## Intro
 
 Marvel API demo that shows a list a comic characters and allows navigation to the character detail.
+To fetch data from the API you will need to get the API keys for free on: https://developer.marvel.com
 
 ## Improvements
 
@@ -11,7 +12,6 @@ Marvel API demo that shows a list a comic characters and allows navigation to th
 - Improve the UI in both UIKit views and SwiftUI
 - View controllers: Retry loading on failure
 - Characters view controller: Add pagination
-- 
 
 ## Contributing
 
