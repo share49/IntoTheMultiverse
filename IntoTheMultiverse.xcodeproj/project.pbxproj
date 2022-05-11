@@ -43,6 +43,7 @@
 		DB7D9116282889F8006D5AF4 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D9115282889F8006D5AF4 /* CharacterDetailViewController.swift */; };
 		DB7D911828288A1E006D5AF4 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D911728288A1E006D5AF4 /* CharacterDetailViewModel.swift */; };
 		DB7D911928288A1E006D5AF4 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D911728288A1E006D5AF4 /* CharacterDetailViewModel.swift */; };
+		DB976BAB282B3A410049498A /* ActivityPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976BAA282B3A410049498A /* ActivityPresentable.swift */; };
 		DBBC142928298D15007F47F2 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC142828298D15007F47F2 /* RouterTests.swift */; };
 		DBBC142B28299AA9007F47F2 /* CharacterDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC142A28299AA9007F47F2 /* CharacterDetailViewModelTests.swift */; };
 		DBBC142D2829B01C007F47F2 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC142C2829B01C007F47F2 /* Thumbnail.swift */; };
@@ -90,6 +91,7 @@
 		DB7D91122828858D006D5AF4 /* character.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = character.json; sourceTree = "<group>"; };
 		DB7D9115282889F8006D5AF4 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 		DB7D911728288A1E006D5AF4 /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
+		DB976BAA282B3A410049498A /* ActivityPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPresentable.swift; sourceTree = "<group>"; };
 		DBBC142828298D15007F47F2 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		DBBC142A28299AA9007F47F2 /* CharacterDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModelTests.swift; sourceTree = "<group>"; };
 		DBBC142C2829B01C007F47F2 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				DB7D910028272813006D5AF4 /* ViewModels */,
 				DB7D910D28287476006D5AF4 /* Router */,
 				DB7D90E62826D113006D5AF4 /* NetworkService */,
+				DB976BAC282B3A450049498A /* Protocols */,
 				DB7D90EA2826D79E006D5AF4 /* Resources */,
 			);
 			path = IntoTheMultiverse;
@@ -230,6 +233,14 @@
 				DB7D910B28287453006D5AF4 /* Destination.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		DB976BAC282B3A450049498A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DB976BAA282B3A410049498A /* ActivityPresentable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		DBBC14312829C931007F47F2 /* ViewModelTests */ = {
@@ -371,6 +382,7 @@
 				DB7D910C28287453006D5AF4 /* Destination.swift in Sources */,
 				DB7D90F02826DBD4006D5AF4 /* Constants.swift in Sources */,
 				DB77A36F282491A3005828F6 /* SceneDelegate.swift in Sources */,
+				DB976BAB282B3A410049498A /* ActivityPresentable.swift in Sources */,
 				DB7D90F52827188E006D5AF4 /* CharacterResponse.swift in Sources */,
 				DB7D9116282889F8006D5AF4 /* CharacterDetailViewController.swift in Sources */,
 				DB7D90E92826D4AB006D5AF4 /* CryptoKitHelper.swift in Sources */,

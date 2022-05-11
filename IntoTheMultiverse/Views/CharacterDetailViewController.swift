@@ -9,7 +9,7 @@ import UIKit
 import Combine
 import Kingfisher
 
-final class CharacterDetailViewController: UIViewController {
+final class CharacterDetailViewController: UIViewController, ActivityPresentable {
     
     // MARK: - Properties
     
@@ -50,6 +50,11 @@ final class CharacterDetailViewController: UIViewController {
     // MARK: - Combine bindings
     
     func setupBindings() {
+        viewModel.$isLoading
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in self?.updateActivityIndicatorState(isLoading: $0) }
+            .store(in: &subscriptions)
+        
         viewModel.$comicCharacter
             .receive(on: DispatchQueue.main)
             .sink { [weak self] comicCharacter in
@@ -92,6 +97,10 @@ final class CharacterDetailViewController: UIViewController {
         lblDescription.numberOfLines = 0
         lblDescription.font = .preferredFont(forTextStyle: .body)
         lblDescription.adjustsFontForContentSizeCategory = true
+    }
+    
+    private func updateActivityIndicatorState(isLoading: Bool) {
+        isLoading ? showActivityIndicator() : hideActivityIndicator()
     }
     
     private func updateUI(with comicCharacter: ComicCharacter) {

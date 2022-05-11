@@ -14,6 +14,7 @@ final class CharacterDetailViewModel: ObservableObject {
     private let networkService: NetworkProvider
     private let characterId: Int
     @Published private(set) var comicCharacter: ComicCharacter?
+    @Published private(set) var isLoading = false
     
     // MARK: - Initializer
     
@@ -26,9 +27,12 @@ final class CharacterDetailViewModel: ObservableObject {
     
     func loadComicCharacter() async {
         do {
+            isLoading = true
             comicCharacter = try await networkService.getCharacter(for: characterId)
         } catch {
             NSLog("CharacterDetailViewModel: Error loading comic character. \(error)")
         }
+        
+        isLoading = false
     }
 }

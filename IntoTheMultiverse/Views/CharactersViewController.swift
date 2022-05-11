@@ -8,11 +8,10 @@
 import UIKit
 import Combine
 
-final class CharactersViewController: UIViewController {
+final class CharactersViewController: UIViewController, ActivityPresentable {
     
     // MARK: - Properties
     private let tableView = UITableView()
-    private let activityIndicator = UIActivityIndicatorView(style: .large)
     private var viewModel: CharactersViewModel
     private var subscriptions = Set<AnyCancellable>()
     
@@ -70,11 +69,10 @@ final class CharactersViewController: UIViewController {
     
     // MARK: - UI methods
     
-    /// Setup View, TableView and ActivityIndicator
+    /// Setup View and TableView
     private func setupUI() {
         title = k.ViewsText.titleCharactersVC
         setupTableView()
-        setupActivityIndicator()
     }
     
     private func setupTableView() {
@@ -92,19 +90,8 @@ final class CharactersViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: k.UI.Cells.characterCell)
     }
     
-    private func setupActivityIndicator() {
-        view.addSubview(activityIndicator)
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        
-        activityIndicator.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: k.UI.margin).isActive = true
-        activityIndicator.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        activityIndicator.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-
-        activityIndicator.hidesWhenStopped = true
-    }
-    
     private func updateActivityIndicatorState(isLoading: Bool) {
-        isLoading ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+        isLoading ? showActivityIndicator() : hideActivityIndicator()
     }
     
     private func showAlert(with message: String) {
