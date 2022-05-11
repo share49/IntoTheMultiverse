@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-final class CharactersViewController: UIViewController, ActivityPresentable {
+final class CharactersViewController: UIViewController, ActivityPresentable, ErrorPresentable {
     
     // MARK: - Properties
     private let tableView = UITableView()
@@ -61,7 +61,7 @@ final class CharactersViewController: UIViewController, ActivityPresentable {
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] receivedValue in
                 if let message = receivedValue {
-                    self?.showAlert(with: message)
+                    self?.presentOKAlert(errorMessage: message)
                 }
             })
             .store(in: &subscriptions)
@@ -92,12 +92,6 @@ final class CharactersViewController: UIViewController, ActivityPresentable {
     
     private func updateActivityIndicatorState(isLoading: Bool) {
         isLoading ? showActivityIndicator() : hideActivityIndicator()
-    }
-    
-    private func showAlert(with message: String) {
-        let alertController = UIAlertController(title: k.ViewsText.alertTitleError, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: k.ViewsText.ok, style: .default))
-        present(alertController, animated: true)
     }
     
     // MARK: - Router methods
