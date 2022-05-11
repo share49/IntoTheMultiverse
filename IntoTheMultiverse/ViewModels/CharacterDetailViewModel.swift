@@ -15,6 +15,7 @@ final class CharacterDetailViewModel: ObservableObject {
     private let characterId: Int
     @Published private(set) var comicCharacter: ComicCharacter?
     @Published private(set) var isLoading = false
+    @Published private(set) var alertMessage: String?
     
     // MARK: - Initializer
     
@@ -29,7 +30,11 @@ final class CharacterDetailViewModel: ObservableObject {
         do {
             isLoading = true
             comicCharacter = try await networkService.getCharacter(for: characterId)
+        } catch NetworkProviderError.noConnection {
+            alertMessage = k.ViewsText.networkErrorMessage
+            NSLog("CharacterDetailViewModel: NetworkProviderError.noConnection")
         } catch {
+            alertMessage = k.ViewsText.defaultErrorMessage
             NSLog("CharacterDetailViewModel: Error loading comic character. \(error)")
         }
         

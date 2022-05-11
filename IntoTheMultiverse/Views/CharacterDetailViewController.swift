@@ -9,7 +9,7 @@ import UIKit
 import Combine
 import Kingfisher
 
-final class CharacterDetailViewController: UIViewController, ActivityPresentable {
+final class CharacterDetailViewController: UIViewController, ActivityPresentable, ErrorPresentable {
     
     // MARK: - Properties
     
@@ -63,6 +63,15 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
                 }
                 self?.updateUI(with: comicCharacter)
             }
+            .store(in: &subscriptions)
+        
+        viewModel.$alertMessage
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] receivedValue in
+                if let message = receivedValue {
+                    self?.presentOKAlert(errorMessage: message)
+                }
+            })
             .store(in: &subscriptions)
     }
     
