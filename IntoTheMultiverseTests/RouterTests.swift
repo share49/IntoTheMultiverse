@@ -15,9 +15,10 @@ final class RouterTests: XCTestCase {
     func testRouter() {
         // Arange
         let navigationController = UINavigationController(rootViewController: UIViewController())
+        let viewModel = CharacterDetailViewModel(characterId: 4)
         
         // Act
-        Router(navigationController).navigate(to: .characterDetail(characterId: 4), animated: false)
+        Router(navigationController).navigate(to: .characterDetail(viewModel: viewModel), animated: false)
         
         // Assert
         XCTAssertEqual(navigationController.viewControllers.count, 2)

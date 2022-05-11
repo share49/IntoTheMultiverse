@@ -57,12 +57,7 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
         
         viewModel.$comicCharacter
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] comicCharacter in
-                guard let comicCharacter = comicCharacter else {
-                    return
-                }
-                self?.updateUI(with: comicCharacter)
-            }
+            .sink { [weak self] in self?.updateUI(with: $0) }
             .store(in: &subscriptions)
         
         viewModel.$alertMessage
@@ -112,7 +107,11 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
         isLoading ? showActivityIndicator() : hideActivityIndicator()
     }
     
-    private func updateUI(with comicCharacter: ComicCharacter) {
+    private func updateUI(with comicCharacter: ComicCharacter?) {
+        guard let comicCharacter = comicCharacter else {
+            return
+        }
+
         title = comicCharacter.name
         imageView.kf.setImage(with: comicCharacter.thumbnail.url)
         lblDescription.text = comicCharacter.description

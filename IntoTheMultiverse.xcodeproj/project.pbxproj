@@ -45,6 +45,12 @@
 		DB7D911928288A1E006D5AF4 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D911728288A1E006D5AF4 /* CharacterDetailViewModel.swift */; };
 		DB976BAB282B3A410049498A /* ActivityPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976BAA282B3A410049498A /* ActivityPresentable.swift */; };
 		DB976BAE282B43F80049498A /* ErrorPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976BAD282B43F80049498A /* ErrorPresentable.swift */; };
+		DB976BB4282B613B0049498A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D910928287414006D5AF4 /* Router.swift */; };
+		DB976BB5282B613E0049498A /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D910B28287453006D5AF4 /* Destination.swift */; };
+		DB976BB6282B61480049498A /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D9115282889F8006D5AF4 /* CharacterDetailViewController.swift */; };
+		DB976BB7282B614E0049498A /* EasterEggView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC14362829F79E007F47F2 /* EasterEggView.swift */; };
+		DB976BB8282B615A0049498A /* ActivityPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976BAA282B3A410049498A /* ActivityPresentable.swift */; };
+		DB976BB9282B615C0049498A /* ErrorPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976BAD282B43F80049498A /* ErrorPresentable.swift */; };
 		DBBC142928298D15007F47F2 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC142828298D15007F47F2 /* RouterTests.swift */; };
 		DBBC142B28299AA9007F47F2 /* CharacterDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC142A28299AA9007F47F2 /* CharacterDetailViewModelTests.swift */; };
 		DBBC142D2829B01C007F47F2 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC142C2829B01C007F47F2 /* Thumbnail.swift */; };
@@ -411,11 +417,17 @@
 			files = (
 				DB7D911128287FC4006D5AF4 /* EndpointTests.swift in Sources */,
 				DB7D910828287207006D5AF4 /* CharactersViewModel.swift in Sources */,
+				DB976BB5282B613E0049498A /* Destination.swift in Sources */,
 				DB7D90FD28271D7E006D5AF4 /* NetworkProvider.swift in Sources */,
+				DB976BB8282B615A0049498A /* ActivityPresentable.swift in Sources */,
+				DB976BB6282B61480049498A /* CharacterDetailViewController.swift in Sources */,
 				DB7D90E52826D10F006D5AF4 /* MockNetworkService.swift in Sources */,
 				DB7D91032828257E006D5AF4 /* Endpoint.swift in Sources */,
+				DB976BB9282B615C0049498A /* ErrorPresentable.swift in Sources */,
 				DBBC142B28299AA9007F47F2 /* CharacterDetailViewModelTests.swift in Sources */,
+				DB976BB4282B613B0049498A /* Router.swift in Sources */,
 				DB7D90E72826D1A3006D5AF4 /* NetworkService.swift in Sources */,
+				DB976BB7282B614E0049498A /* EasterEggView.swift in Sources */,
 				DBBC14342829CA01007F47F2 /* ThumbnailTests.swift in Sources */,
 				DB7D90F8282719AA006D5AF4 /* CharacterResponse.swift in Sources */,
 				DB7D911928288A1E006D5AF4 /* CharacterDetailViewModel.swift in Sources */,

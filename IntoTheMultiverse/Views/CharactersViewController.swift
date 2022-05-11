@@ -104,7 +104,8 @@ final class CharactersViewController: UIViewController, ActivityPresentable, Err
             return
         }
         
-        Router(navigationController).navigate(to: .characterDetail(characterId: characterId))
+        let viewModel = CharacterDetailViewModel(characterId: characterId)
+        Router(navigationController).navigate(to: .characterDetail(viewModel: viewModel))
     }
 }
 
