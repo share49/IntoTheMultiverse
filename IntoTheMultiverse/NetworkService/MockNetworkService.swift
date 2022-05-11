@@ -18,12 +18,7 @@ struct MockNetworkService: NetworkProvider {
     
     func getCharacter(for id: Int) async throws -> ComicCharacter {
         let characterResponse: CharacterResponse = try await loadMockData(for: "character", ofType: "json")
-        
-        guard let firstCharacter = characterResponse.data.comicCharacters.first else {
-            throw NetworkProviderError.emptyCharactersArray
-        }
-        
-        return firstCharacter
+        return try parseCharacter(from: characterResponse, forId: id)
     }
     
     // MARK: - Support methods

@@ -27,12 +27,7 @@ struct NetworkService: NetworkProvider {
             let requiredQueryItems = try Endpoint.buildRequiredQueryItems()
             let url = Endpoint.comicCharacter(for: id, with: requiredQueryItems).url
             let characterResponse: CharacterResponse = try await getAndDecode(url: url)
-            
-            guard let comicCharacter = characterResponse.data.comicCharacters.first else {
-                throw NetworkProviderError.emptyCharactersArray
-            }
-            
-            return comicCharacter
+            return try parseCharacter(from: characterResponse, forId: id)
         } catch {
             throw error
         }
