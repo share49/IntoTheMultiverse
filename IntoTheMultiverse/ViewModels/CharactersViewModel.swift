@@ -12,6 +12,7 @@ import Foundation
     // MARK: - Properties
     
     private let networkService: NetworkProvider
+    @Published private(set) var isLoading = false
     @Published private(set) var comicCharacters = [ComicCharacter]()
     @Published private(set) var alertMessage: String?
     
@@ -29,6 +30,7 @@ import Foundation
         }
         
         do {
+            isLoading = true
             comicCharacters = try await networkService.getCharacters()
         } catch NetworkProviderError.noConnection {
             alertMessage = k.ViewsText.networkErrorMessage
@@ -37,5 +39,7 @@ import Foundation
             alertMessage = k.ViewsText.defaultErrorMessage
             NSLog("CharactersViewModel: Error loading comic characters. \(error)")
         }
+        
+        isLoading = false
     }
 }

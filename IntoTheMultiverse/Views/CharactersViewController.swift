@@ -12,6 +12,7 @@ final class CharactersViewController: UIViewController {
     
     // MARK: - Properties
     private let tableView = UITableView()
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
     private var viewModel: CharactersViewModel
     private var subscriptions = Set<AnyCancellable>()
     
@@ -33,7 +34,6 @@ final class CharactersViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-        setupTableView()
         setupBindings()
     }
     
@@ -48,6 +48,11 @@ final class CharactersViewController: UIViewController {
     // MARK: - Combine bindings
     
     func setupBindings() {
+        viewModel.$isLoading
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in self?.updateActivityIndicatorState(isLoading: $0) }
+            .store(in: &subscriptions)
+        
         viewModel.$comicCharacters
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in self?.tableView.reloadData() }
@@ -65,8 +70,11 @@ final class CharactersViewController: UIViewController {
     
     // MARK: - UI methods
     
+    /// Setup View, TableView and ActivityIndicator
     private func setupUI() {
         title = k.ViewsText.titleCharactersVC
+        setupTableView()
+        setupActivityIndicator()
     }
     
     private func setupTableView() {
@@ -82,6 +90,21 @@ final class CharactersViewController: UIViewController {
         tableView.delegate = self
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: k.UI.Cells.characterCell)
+    }
+    
+    private func setupActivityIndicator() {
+        view.addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        activityIndicator.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: k.UI.margin).isActive = true
+        activityIndicator.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        activityIndicator.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+
+        activityIndicator.hidesWhenStopped = true
+    }
+    
+    private func updateActivityIndicatorState(isLoading: Bool) {
+        isLoading ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
     }
     
     private func showAlert(with message: String) {
