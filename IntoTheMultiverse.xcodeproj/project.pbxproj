@@ -152,6 +152,7 @@
 				DB7D910D28287476006D5AF4 /* Router */,
 				DB7D90E62826D113006D5AF4 /* NetworkService */,
 				DB976BAC282B3A450049498A /* Protocols */,
+				DB976BAF282B4D810049498A /* Helpers */,
 				DB7D90EA2826D79E006D5AF4 /* Resources */,
 			);
 			path = IntoTheMultiverse;
@@ -193,7 +194,6 @@
 		DB7D90EA2826D79E006D5AF4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DB7D90E82826D4AB006D5AF4 /* CryptoKitHelper.swift */,
 				DB7D90EF2826DBD4006D5AF4 /* Constants.swift */,
 			);
 			path = Resources;
@@ -244,6 +244,14 @@
 				DB976BAD282B43F80049498A /* ErrorPresentable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		DB976BAF282B4D810049498A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DB7D90E82826D4AB006D5AF4 /* CryptoKitHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		DBBC14312829C931007F47F2 /* ViewModelTests */ = {

@@ -46,6 +46,7 @@ final class CharactersViewController: UIViewController, ActivityPresentable, Err
     
     // MARK: - Combine bindings
     
+    /// Setup combine bindings for the viewModel
     func setupBindings() {
         viewModel.$isLoading
             .receive(on: DispatchQueue.main)
@@ -96,6 +97,7 @@ final class CharactersViewController: UIViewController, ActivityPresentable, Err
     
     // MARK: - Router methods
     
+    /// Navigates to CharacterDetailViewController
     private func showCharacterDetailView(for characterId: Int) {
         guard let navigationController = navigationController else {
             NSLog("Unable to get navigationController")
@@ -116,7 +118,7 @@ extension CharactersViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: k.UI.Cells.characterCell, for: indexPath)
-        cell.textLabel?.text = viewModel.comicCharacters[indexPath.row].name
+        cell.textLabel?.text = viewModel.getCharacterName(for: indexPath)
         return cell
     }
 }
@@ -126,7 +128,7 @@ extension CharactersViewController: UITableViewDataSource {
 extension CharactersViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let characterId = viewModel.comicCharacters[indexPath.row].id
+        let characterId = viewModel.getCharacterId(for: indexPath)
         showCharacterDetailView(for: characterId)
     }
 }

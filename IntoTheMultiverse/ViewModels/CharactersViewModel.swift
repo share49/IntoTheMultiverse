@@ -42,4 +42,14 @@ import Foundation
         
         isLoading = false
     }
+    
+    // MARK: - Methods
+    
+    func getCharacterName(for indexPath: IndexPath) -> String {
+        comicCharacters[indexPath.row].name
+    }
+    
+    func getCharacterId(for indexPath: IndexPath) -> Int {
+        comicCharacters[indexPath.row].id
+    }
 }
