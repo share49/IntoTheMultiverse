@@ -48,6 +48,10 @@
 		DB9762D72835646F000E9ED3 /* CharacterListCell_Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9762D62835646F000E9ED3 /* CharacterListCell_Preview.swift */; };
 		DB9762DA28357673000E9ED3 /* CharacterListCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9762D928357673000E9ED3 /* CharacterListCellViewModelTests.swift */; };
 		DB9762DB283576B3000E9ED3 /* CharacterListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9762D428355C77000E9ED3 /* CharacterListCellViewModel.swift */; };
+		DB9762DD2835AAE1000E9ED3 /* Comics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9762DC2835AAE1000E9ED3 /* Comics.swift */; };
+		DB9762DF2835ACBE000E9ED3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9762DE2835ACBE000E9ED3 /* Item.swift */; };
+		DB9762E02835AD3C000E9ED3 /* Comics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9762DC2835AAE1000E9ED3 /* Comics.swift */; };
+		DB9762E12835AD3E000E9ED3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9762DE2835ACBE000E9ED3 /* Item.swift */; };
 		DB976BAB282B3A410049498A /* ActivityPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976BAA282B3A410049498A /* ActivityPresentable.swift */; };
 		DB976BAE282B43F80049498A /* ErrorPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976BAD282B43F80049498A /* ErrorPresentable.swift */; };
 		DB976BB4282B613B0049498A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D910928287414006D5AF4 /* Router.swift */; };
@@ -107,6 +111,8 @@
 		DB9762D428355C77000E9ED3 /* CharacterListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCellViewModel.swift; sourceTree = "<group>"; };
 		DB9762D62835646F000E9ED3 /* CharacterListCell_Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCell_Preview.swift; sourceTree = "<group>"; };
 		DB9762D928357673000E9ED3 /* CharacterListCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCellViewModelTests.swift; sourceTree = "<group>"; };
+		DB9762DC2835AAE1000E9ED3 /* Comics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comics.swift; sourceTree = "<group>"; };
+		DB9762DE2835ACBE000E9ED3 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		DB976BAA282B3A410049498A /* ActivityPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPresentable.swift; sourceTree = "<group>"; };
 		DB976BAD282B43F80049498A /* ErrorPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresentable.swift; sourceTree = "<group>"; };
 		DBBC142828298D15007F47F2 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
@@ -222,6 +228,8 @@
 				DB7D90F42827188E006D5AF4 /* CharacterResponse.swift */,
 				DB7D90F6282718D1006D5AF4 /* ResponseData.swift */,
 				DBBC142C2829B01C007F47F2 /* Thumbnail.swift */,
+				DB9762DC2835AAE1000E9ED3 /* Comics.swift */,
+				DB9762DE2835ACBE000E9ED3 /* Item.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -434,9 +442,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBBC142D2829B01C007F47F2 /* Thumbnail.swift in Sources */,
+				DB9762DD2835AAE1000E9ED3 /* Comics.swift in Sources */,
 				DB7D90FF28272810006D5AF4 /* CharactersViewModel.swift in Sources */,
 				DB9762D528355C77000E9ED3 /* CharacterListCellViewModel.swift in Sources */,
 				DB77A371282491A3005828F6 /* CharactersViewController.swift in Sources */,
+				DB9762DF2835ACBE000E9ED3 /* Item.swift in Sources */,
 				DB77A36D282491A3005828F6 /* AppDelegate.swift in Sources */,
 				DB7D90E32826D102006D5AF4 /* NetworkService.swift in Sources */,
 				DB7D90EC2826D936006D5AF4 /* ComicCharacter.swift in Sources */,
@@ -467,6 +477,7 @@
 				DB7D910828287207006D5AF4 /* CharactersViewModel.swift in Sources */,
 				DB976BB5282B613E0049498A /* Destination.swift in Sources */,
 				DB7D90FD28271D7E006D5AF4 /* NetworkProvider.swift in Sources */,
+				DB9762E12835AD3E000E9ED3 /* Item.swift in Sources */,
 				DB976BB8282B615A0049498A /* ActivityPresentable.swift in Sources */,
 				DB976BB6282B61480049498A /* CharacterDetailViewController.swift in Sources */,
 				DB7D90E52826D10F006D5AF4 /* MockNetworkService.swift in Sources */,
@@ -489,6 +500,7 @@
 				DB7D9107282871DF006D5AF4 /* CharactersViewModelTests.swift in Sources */,
 				DB7D90EE2826D98D006D5AF4 /* ComicCharacter.swift in Sources */,
 				DB7D91042828258A006D5AF4 /* Constants.swift in Sources */,
+				DB9762E02835AD3C000E9ED3 /* Comics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

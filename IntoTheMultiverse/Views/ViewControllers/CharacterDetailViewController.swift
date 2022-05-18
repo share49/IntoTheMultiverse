@@ -82,6 +82,7 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
     private func setupImageView() {
         view.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
         
         imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         imageView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
