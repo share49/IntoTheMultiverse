@@ -29,6 +29,8 @@ import Foundation
             return
         }
         
+        defer { isLoading = false }
+        
         do {
             isLoading = true
             comicCharacters = try await networkService.getCharacters()
@@ -39,14 +41,12 @@ import Foundation
             alertMessage = Constants.ViewsText.defaultErrorMessage
             NSLog("CharactersViewModel: Error loading comic characters. \(error)")
         }
-        
-        isLoading = false
     }
     
     // MARK: - Methods
     
-    func getCharacterName(for indexPath: IndexPath) -> String {
-        comicCharacters[indexPath.row].name
+    func getCharacter(for indexPath: IndexPath) -> ComicCharacter {
+        comicCharacters[indexPath.row]
     }
     
     func getCharacterId(for indexPath: IndexPath) -> Int {

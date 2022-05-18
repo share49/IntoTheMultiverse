@@ -43,6 +43,11 @@
 		DB7D9116282889F8006D5AF4 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D9115282889F8006D5AF4 /* CharacterDetailViewController.swift */; };
 		DB7D911828288A1E006D5AF4 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D911728288A1E006D5AF4 /* CharacterDetailViewModel.swift */; };
 		DB7D911928288A1E006D5AF4 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D911728288A1E006D5AF4 /* CharacterDetailViewModel.swift */; };
+		DB9762D228355B4B000E9ED3 /* CharacterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9762D128355B4B000E9ED3 /* CharacterListCell.swift */; };
+		DB9762D528355C77000E9ED3 /* CharacterListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9762D428355C77000E9ED3 /* CharacterListCellViewModel.swift */; };
+		DB9762D72835646F000E9ED3 /* CharacterListCell_Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9762D62835646F000E9ED3 /* CharacterListCell_Preview.swift */; };
+		DB9762DA28357673000E9ED3 /* CharacterListCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9762D928357673000E9ED3 /* CharacterListCellViewModelTests.swift */; };
+		DB9762DB283576B3000E9ED3 /* CharacterListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9762D428355C77000E9ED3 /* CharacterListCellViewModel.swift */; };
 		DB976BAB282B3A410049498A /* ActivityPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976BAA282B3A410049498A /* ActivityPresentable.swift */; };
 		DB976BAE282B43F80049498A /* ErrorPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB976BAD282B43F80049498A /* ErrorPresentable.swift */; };
 		DB976BB4282B613B0049498A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D910928287414006D5AF4 /* Router.swift */; };
@@ -98,6 +103,10 @@
 		DB7D91122828858D006D5AF4 /* character.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = character.json; sourceTree = "<group>"; };
 		DB7D9115282889F8006D5AF4 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 		DB7D911728288A1E006D5AF4 /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
+		DB9762D128355B4B000E9ED3 /* CharacterListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCell.swift; sourceTree = "<group>"; };
+		DB9762D428355C77000E9ED3 /* CharacterListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCellViewModel.swift; sourceTree = "<group>"; };
+		DB9762D62835646F000E9ED3 /* CharacterListCell_Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCell_Preview.swift; sourceTree = "<group>"; };
+		DB9762D928357673000E9ED3 /* CharacterListCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCellViewModelTests.swift; sourceTree = "<group>"; };
 		DB976BAA282B3A410049498A /* ActivityPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPresentable.swift; sourceTree = "<group>"; };
 		DB976BAD282B43F80049498A /* ErrorPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresentable.swift; sourceTree = "<group>"; };
 		DBBC142828298D15007F47F2 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
@@ -179,9 +188,10 @@
 		DB77A39C28249488005828F6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DB77A370282491A3005828F6 /* CharactersViewController.swift */,
-				DB7D9115282889F8006D5AF4 /* CharacterDetailViewController.swift */,
-				DBBC14362829F79E007F47F2 /* EasterEggView.swift */,
+				DB9762CF28355B35000E9ED3 /* ViewControllers */,
+				DB9762D328355B65000E9ED3 /* Cells */,
+				DB9762D028355B3C000E9ED3 /* SwiftUI */,
+				DB9762D828356476000E9ED3 /* Previews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -230,6 +240,7 @@
 			children = (
 				DB7D90FE28272810006D5AF4 /* CharactersViewModel.swift */,
 				DB7D911728288A1E006D5AF4 /* CharacterDetailViewModel.swift */,
+				DB9762D428355C77000E9ED3 /* CharacterListCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -241,6 +252,39 @@
 				DB7D910B28287453006D5AF4 /* Destination.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		DB9762CF28355B35000E9ED3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DB77A370282491A3005828F6 /* CharactersViewController.swift */,
+				DB7D9115282889F8006D5AF4 /* CharacterDetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DB9762D028355B3C000E9ED3 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				DBBC14362829F79E007F47F2 /* EasterEggView.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		DB9762D328355B65000E9ED3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DB9762D128355B4B000E9ED3 /* CharacterListCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DB9762D828356476000E9ED3 /* Previews */ = {
+			isa = PBXGroup;
+			children = (
+				DB9762D62835646F000E9ED3 /* CharacterListCell_Preview.swift */,
+			);
+			path = Previews;
 			sourceTree = "<group>";
 		};
 		DB976BAC282B3A450049498A /* Protocols */ = {
@@ -265,6 +309,7 @@
 			children = (
 				DB7D9106282871DF006D5AF4 /* CharactersViewModelTests.swift */,
 				DBBC142A28299AA9007F47F2 /* CharacterDetailViewModelTests.swift */,
+				DB9762D928357673000E9ED3 /* CharacterListCellViewModelTests.swift */,
 			);
 			path = ViewModelTests;
 			sourceTree = "<group>";
@@ -390,12 +435,14 @@
 			files = (
 				DBBC142D2829B01C007F47F2 /* Thumbnail.swift in Sources */,
 				DB7D90FF28272810006D5AF4 /* CharactersViewModel.swift in Sources */,
+				DB9762D528355C77000E9ED3 /* CharacterListCellViewModel.swift in Sources */,
 				DB77A371282491A3005828F6 /* CharactersViewController.swift in Sources */,
 				DB77A36D282491A3005828F6 /* AppDelegate.swift in Sources */,
 				DB7D90E32826D102006D5AF4 /* NetworkService.swift in Sources */,
 				DB7D90EC2826D936006D5AF4 /* ComicCharacter.swift in Sources */,
 				DB7D911828288A1E006D5AF4 /* CharacterDetailViewModel.swift in Sources */,
 				DB7D90F7282718D1006D5AF4 /* ResponseData.swift in Sources */,
+				DB9762D72835646F000E9ED3 /* CharacterListCell_Preview.swift in Sources */,
 				DB976BAE282B43F80049498A /* ErrorPresentable.swift in Sources */,
 				DB7D910C28287453006D5AF4 /* Destination.swift in Sources */,
 				DB7D90F02826DBD4006D5AF4 /* Constants.swift in Sources */,
@@ -404,6 +451,7 @@
 				DB7D90F52827188E006D5AF4 /* CharacterResponse.swift in Sources */,
 				DB7D9116282889F8006D5AF4 /* CharacterDetailViewController.swift in Sources */,
 				DB7D90E92826D4AB006D5AF4 /* CryptoKitHelper.swift in Sources */,
+				DB9762D228355B4B000E9ED3 /* CharacterListCell.swift in Sources */,
 				DBBC14372829F79E007F47F2 /* EasterEggView.swift in Sources */,
 				DB7D910228272AF6006D5AF4 /* Endpoint.swift in Sources */,
 				DB7D90FC28271D7D006D5AF4 /* NetworkProvider.swift in Sources */,
@@ -431,11 +479,13 @@
 				DBBC14342829CA01007F47F2 /* ThumbnailTests.swift in Sources */,
 				DB7D90F8282719AA006D5AF4 /* CharacterResponse.swift in Sources */,
 				DB7D911928288A1E006D5AF4 /* CharacterDetailViewModel.swift in Sources */,
+				DB9762DA28357673000E9ED3 /* CharacterListCellViewModelTests.swift in Sources */,
 				DB7D910528282595006D5AF4 /* CryptoKitHelper.swift in Sources */,
 				DB77A384282491A5005828F6 /* NetworkProviderTests.swift in Sources */,
 				DBBC142928298D15007F47F2 /* RouterTests.swift in Sources */,
 				DB7D90F9282719AC006D5AF4 /* ResponseData.swift in Sources */,
 				DBBC14352829CA70007F47F2 /* Thumbnail.swift in Sources */,
+				DB9762DB283576B3000E9ED3 /* CharacterListCellViewModel.swift in Sources */,
 				DB7D9107282871DF006D5AF4 /* CharactersViewModelTests.swift in Sources */,
 				DB7D90EE2826D98D006D5AF4 /* ComicCharacter.swift in Sources */,
 				DB7D91042828258A006D5AF4 /* Constants.swift in Sources */,

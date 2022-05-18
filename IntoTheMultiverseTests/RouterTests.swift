@@ -12,8 +12,8 @@ final class RouterTests: XCTestCase {
     
     // MARK: - Tests
     
-    func testRouter() {
-        // Arange
+    @MainActor func testRouter() {
+        // Arrange
         let navigationController = UINavigationController(rootViewController: UIViewController())
         let viewModel = CharacterDetailViewModel(characterId: 4)
         

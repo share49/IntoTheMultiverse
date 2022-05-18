@@ -13,12 +13,28 @@ final class ThumbnailTests: XCTestCase {
     // MARK: - Tests
     
     func testThumbnailUrl() {
-        // Arange
+        // Arrange
         let path = "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784"
         let fileExtension = "jpg"
         let thumbnail = Thumbnail(path: path, fileExtension: fileExtension)
         
+        // Act
+        let url = thumbnail.url(for: .original)
+        
         // Assert
-        XCTAssertEqual(thumbnail.url, URL(string: "https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg"))
+        XCTAssertEqual(url, URL(string: "https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg"))
+    }
+    
+    func testThumbnailUrlForCustomSize() {
+        // Arrange
+        let path = "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784"
+        let fileExtension = "jpg"
+        let thumbnail = Thumbnail(path: path, fileExtension: fileExtension)
+        
+        // Act
+        let url = thumbnail.url(for: .squareMedium)
+        
+        // Assert
+        XCTAssertEqual(url, URL(string: "https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784/standard_medium.jpg"))
     }
 }

@@ -113,7 +113,7 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
         }
 
         title = comicCharacter.name
-        imageView.kf.setImage(with: comicCharacter.thumbnail.url)
+        imageView.kf.setImage(with: comicCharacter.thumbnail.url(for: .original))
         lblDescription.text = comicCharacter.description
     }
 }

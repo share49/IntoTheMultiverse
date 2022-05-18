@@ -7,11 +7,13 @@
 
 import UIKit
 import Combine
+import Kingfisher
 
 final class CharactersViewController: UIViewController, ActivityPresentable, ErrorPresentable {
     
     // MARK: - Properties
     private let tableView = UITableView()
+    private let cellIdentifier = Constants.UI.Cells.characterCell
     private var viewModel: CharactersViewModel
     private var subscriptions = Set<AnyCancellable>()
     
@@ -90,7 +92,7 @@ final class CharactersViewController: UIViewController, ActivityPresentable, Err
         tableView.dataSource = self
         tableView.delegate = self
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.UI.Cells.characterCell)
+        tableView.register(CharacterListCell.self, forCellReuseIdentifier: cellIdentifier)
     }
     
     private func updateActivityIndicatorState(isLoading: Bool) {
@@ -128,8 +130,12 @@ extension CharactersViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.UI.Cells.characterCell, for: indexPath)
-        cell.textLabel?.text = viewModel.getCharacterName(for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CharacterListCell else {
+            fatalError("Couldn't cast cell as CharacterListCell")
+        }
+        
+        let comicCharacter = viewModel.getCharacter(for: indexPath)
+        cell.setup(with: CharacterListCellViewModel(with: comicCharacter))
         return cell
     }
 }

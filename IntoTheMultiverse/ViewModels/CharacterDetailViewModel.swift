@@ -7,8 +7,8 @@
 
 import Foundation
 
-final class CharacterDetailViewModel {
-
+@MainActor class CharacterDetailViewModel {
+    
     // MARK: - Properties
     
     private let networkService: NetworkProvider
@@ -27,6 +27,8 @@ final class CharacterDetailViewModel {
     // MARK: - Load comic characters
     
     func loadComicCharacter() async {
+        defer { isLoading = false }
+        
         do {
             isLoading = true
             comicCharacter = try await networkService.getCharacter(for: characterId)
@@ -37,7 +39,5 @@ final class CharacterDetailViewModel {
             alertMessage = Constants.ViewsText.defaultErrorMessage
             NSLog("CharacterDetailViewModel: Error loading comic character. \(error)")
         }
-        
-        isLoading = false
     }
 }

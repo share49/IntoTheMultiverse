@@ -59,6 +59,7 @@ struct Constants {
         }
         
         static let margin: CGFloat = 12
+        static let cellImageHeight: CGFloat = 80
     }
     
     // MARK: - ViewsText constants

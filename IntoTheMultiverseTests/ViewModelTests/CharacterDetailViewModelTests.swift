@@ -7,12 +7,12 @@
 
 import XCTest
 
-final class CharacterDetailViewModelTests: XCTestCase {
+@MainActor class CharacterDetailViewModelTests: XCTestCase {
     
     // MARK: - Tests
     
     func testLoadComicCharacter() async throws {
-        // Arange
+        // Arrange
         let characterId = 1011334
         let viewModel = CharacterDetailViewModel(with: MockNetworkService(), characterId: characterId)
         
@@ -25,7 +25,7 @@ final class CharacterDetailViewModelTests: XCTestCase {
     }
     
     func testLoadComicCharacterFailure() async throws {
-        // Arange
+        // Arrange
         let characterId = 0
         let viewModel = CharacterDetailViewModel(with: MockNetworkService(), characterId: characterId)
         
