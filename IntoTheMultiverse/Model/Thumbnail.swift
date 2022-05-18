@@ -11,6 +11,7 @@ struct Thumbnail: Decodable {
     
     // MARK: - Enum
     
+    /// Thumbnail sizes. Check https://developer.marvel.com/documentation/images to see all the available ones.
     enum ThumbnailSize: String {
         case original
         case squareSmall = "standard_small"
