@@ -7,7 +7,7 @@
 
 import Foundation
 
-@MainActor class CharacterListCellViewModel {
+final class CharacterListCellViewModel {
     
     // MARK: - Properties
     

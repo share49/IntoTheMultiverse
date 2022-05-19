@@ -8,7 +8,7 @@
 import XCTest
 @testable import IntoTheMultiverse
 
-@MainActor class CharactersViewModelTests: XCTestCase {
+final class CharactersViewModelTests: XCTestCase {
     
     // MARK: - Tests
     
@@ -17,7 +17,7 @@ import XCTest
         let viewModel = CharactersViewModel(with: MockNetworkService())
         
         // Act
-        await viewModel.loadComicCharacters()
+        await viewModel.loadFirstComicCharacters()
         
         // Assert
         XCTAssertEqual(viewModel.comicCharacters.count, 20)
@@ -29,7 +29,7 @@ import XCTest
         let indexPath = IndexPath(row: 0, section: 0)
         
         // Act
-        await viewModel.loadComicCharacters()
+        await viewModel.loadFirstComicCharacters()
         let character = viewModel.getCharacter(for: indexPath)
         
         // Assert
@@ -43,7 +43,7 @@ import XCTest
         let indexPath = IndexPath(row: 0, section: 0)
         
         // Act
-        await viewModel.loadComicCharacters()
+        await viewModel.loadFirstComicCharacters()
         let characterId = viewModel.getCharacterId(for: indexPath)
         
         // Assert

@@ -12,7 +12,7 @@ final class RouterTests: XCTestCase {
     
     // MARK: - Tests
     
-    @MainActor func testRouter() {
+    func testRouter() {
         // Arrange
         let navigationController = UINavigationController(rootViewController: UIViewController())
         let presistanceManager = MockPersistenceManager()

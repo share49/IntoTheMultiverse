@@ -7,7 +7,7 @@
 
 import Foundation
 
-@MainActor class CharactersViewModel {
+final class CharactersViewModel {
     
     // MARK: - Properties
     

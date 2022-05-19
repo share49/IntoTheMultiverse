@@ -19,7 +19,7 @@ final class NetworkProviderTests: XCTestCase {
     func testGetCharacters() async {
         do {
             // Act
-            let characters = try await mockNetworkService.getCharacters()
+            let characters = try await mockNetworkService.getCharacters(offsetBy: 0)
             
             // Assert
             XCTAssertEqual(characters.count, 20)

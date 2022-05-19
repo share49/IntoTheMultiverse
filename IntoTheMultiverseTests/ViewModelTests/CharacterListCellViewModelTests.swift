@@ -8,7 +8,7 @@
 import XCTest
 @testable import IntoTheMultiverse
 
-@MainActor class CharacterListCellViewModelTests: XCTestCase {
+final class CharacterListCellViewModelTests: XCTestCase {
     
     // MARK: - Properties
     

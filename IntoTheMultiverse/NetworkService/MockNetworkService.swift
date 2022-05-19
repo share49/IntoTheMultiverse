@@ -11,7 +11,7 @@ struct MockNetworkService: NetworkProvider {
     
     // MARK: - NetworkProvider
     
-    func getCharacters() async throws -> [ComicCharacter] {
+    func getCharacters(offsetBy offset: Int) async throws -> [ComicCharacter] {
         let characterResponse: CharacterResponse = try await loadMockData(for: "characters", ofType: "json")
         return characterResponse.data.comicCharacters
     }
