@@ -46,7 +46,7 @@ extension PersistenceManager: PersistenceHandler {
         if let favorite = fetchFavoriteCoreDataObject(for: id, in: context) {
             favorite.isFavorite = isFavorite
         } else {
-            let cdFavorite = Favorite(context: context)
+            let cdFavorite = CDFavorite(context: context)
             cdFavorite.id = Int32(id)
             cdFavorite.isFavorite = isFavorite
         }
@@ -56,13 +56,13 @@ extension PersistenceManager: PersistenceHandler {
     
     // MARK: - Support methods
     
-    private func fetchFavoriteCoreDataObject(for id: Int, in context: NSManagedObjectContext) -> Favorite? {
-        let fetchRequest: NSFetchRequest<Favorite> = Favorite.fetchRequest()
+    private func fetchFavoriteCoreDataObject(for id: Int, in context: NSManagedObjectContext) -> CDFavorite? {
+        let fetchRequest: NSFetchRequest<CDFavorite> = CDFavorite.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %i", id)
         
         do {
-            let result = try context.fetch(fetchRequest)
-            return result.first
+            let favorites = try context.fetch(fetchRequest)
+            return favorites.first
         } catch {
             NSLog("Unable to execute fetch request, \(error)")
         }
