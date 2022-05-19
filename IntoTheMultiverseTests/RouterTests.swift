@@ -15,7 +15,8 @@ final class RouterTests: XCTestCase {
     @MainActor func testRouter() {
         // Arrange
         let navigationController = UINavigationController(rootViewController: UIViewController())
-        let viewModel = CharacterDetailViewModel(characterId: 4)
+        let presistanceManager = PersistenceManager()
+        let viewModel = CharacterDetailViewModel(characterId: 4, persistenceManager: presistanceManager)
         
         // Act
         Router(navigationController).navigate(to: .characterDetail(viewModel: viewModel), animated: false)

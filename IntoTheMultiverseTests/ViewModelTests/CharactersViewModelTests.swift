@@ -12,7 +12,7 @@ import XCTest
     
     // MARK: - Tests
     
-    func testLoadComicCharacters() async throws {
+    func testLoadComicCharacters() async {
         // Arrange
         let viewModel = CharactersViewModel(with: MockNetworkService())
         
@@ -23,7 +23,7 @@ import XCTest
         XCTAssertEqual(viewModel.comicCharacters.count, 20)
     }
     
-    func testGetCharacter() async throws {
+    func testGetCharacter() async {
         // Arrange
         let viewModel = CharactersViewModel(with: MockNetworkService())
         let indexPath = IndexPath(row: 0, section: 0)
@@ -37,7 +37,7 @@ import XCTest
         //FixMe
     }
     
-    func testGetCharacterId() async throws {
+    func testGetCharacterId() async {
         // Arrange
         let viewModel = CharactersViewModel(with: MockNetworkService())
         let indexPath = IndexPath(row: 0, section: 0)

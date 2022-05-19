@@ -16,7 +16,7 @@ final class NetworkProviderTests: XCTestCase {
     
     // MARK: - Tests
     
-    func testGetCharacters() async throws {
+    func testGetCharacters() async {
         do {
             // Act
             let characters = try await mockNetworkService.getCharacters()
@@ -38,7 +38,7 @@ final class NetworkProviderTests: XCTestCase {
         }
     }
     
-    func testGetCharacterForId() async throws {
+    func testGetCharacterForId() async {
         do {
             // Arrange
             let characterId = 1011334

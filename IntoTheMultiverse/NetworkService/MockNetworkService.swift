@@ -28,11 +28,7 @@ struct MockNetworkService: NetworkProvider {
             throw NetworkProviderError.invalidFilePath
         }
         
-        do {
-            let data = try Data(contentsOf: URL(fileURLWithPath: filepath))
-            return try decode(data: data)
-        } catch {
-            throw error
-        }
+        let data = try Data(contentsOf: URL(fileURLWithPath: filepath))
+        return try decode(data: data)
     }
 }

@@ -9,12 +9,17 @@ import XCTest
 
 @MainActor class CharacterDetailViewModelTests: XCTestCase {
     
+    // MARK: - Properties
+    
+    private let mockNetworkService = MockNetworkService()
+    private let persistenceManager = PersistenceManager()
+    
     // MARK: - Tests
     
-    func testLoadComicCharacter() async throws {
+    func testLoadComicCharacter() async {
         // Arrange
         let characterId = 1011334
-        let viewModel = CharacterDetailViewModel(with: MockNetworkService(), characterId: characterId)
+        let viewModel = CharacterDetailViewModel(with: mockNetworkService, characterId: characterId, persistenceManager: persistenceManager)
         
         // Act
         await viewModel.loadComicCharacter()
@@ -24,10 +29,10 @@ import XCTest
         XCTAssertEqual(viewModel.comicCharacter?.name, "3-D Man")
     }
     
-    func testLoadComicCharacterFailure() async throws {
+    func testLoadComicCharacterFailure() async {
         // Arrange
         let characterId = 0
-        let viewModel = CharacterDetailViewModel(with: MockNetworkService(), characterId: characterId)
+        let viewModel = CharacterDetailViewModel(with: mockNetworkService, characterId: characterId, persistenceManager: persistenceManager)
         
         // Act
         await viewModel.loadComicCharacter()
