@@ -6,13 +6,14 @@
 //
 
 import XCTest
+@testable import IntoTheMultiverse
 
 @MainActor class CharacterDetailViewModelTests: XCTestCase {
     
     // MARK: - Properties
     
     private let mockNetworkService = MockNetworkService()
-    private let persistenceManager = PersistenceManager()
+    private let persistenceManager = MockPersistenceManager()
     private let validCharacterId = 1011334
     private let invalidCharacterId = 0
     

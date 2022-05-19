@@ -23,11 +23,11 @@ struct PersistenceManager {
     
     init() {
         container = NSPersistentContainer(name: "Persistence")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                NSLog("Error loading persistent store. \(error), \(error.userInfo)")
+        container.loadPersistentStores { description, error in
+            if let error = error {
+                fatalError("Unable to load persistent stores: \(error)")
             }
-        })
+        }
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
 }

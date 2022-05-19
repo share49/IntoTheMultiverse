@@ -15,7 +15,7 @@ final class RouterTests: XCTestCase {
     @MainActor func testRouter() {
         // Arrange
         let navigationController = UINavigationController(rootViewController: UIViewController())
-        let presistanceManager = PersistenceManager()
+        let presistanceManager = MockPersistenceManager()
         let viewModel = CharacterDetailViewModel(characterId: 4, persistenceManager: presistanceManager)
         
         // Act

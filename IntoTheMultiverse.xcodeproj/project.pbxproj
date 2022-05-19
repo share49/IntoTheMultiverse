@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DB2F3E462836E961003310CC /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9762E42835E25D000E9ED3 /* PersistenceManager.swift */; };
-		DB2F3E472836E99F003310CC /* Persistence.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB5DFD402836D83700038FB5 /* Persistence.xcdatamodeld */; };
+		DB2F3E482836FB71003310CC /* Persistence.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB5DFD402836D83700038FB5 /* Persistence.xcdatamodeld */; };
+		DB2F3E4A2836FC5D003310CC /* MockPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3E492836FC5D003310CC /* MockPersistenceManager.swift */; };
 		DB5DFD432836D83700038FB5 /* Persistence.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB5DFD402836D83700038FB5 /* Persistence.xcdatamodeld */; };
 		DB77A36D282491A3005828F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB77A36C282491A3005828F6 /* AppDelegate.swift */; };
 		DB77A36F282491A3005828F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB77A36E282491A3005828F6 /* SceneDelegate.swift */; };
@@ -84,6 +85,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB2F3E492836FC5D003310CC /* MockPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPersistenceManager.swift; sourceTree = "<group>"; };
 		DB5DFD412836D83700038FB5 /* Persistence.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Persistence.xcdatamodel; sourceTree = "<group>"; };
 		DB77A369282491A3005828F6 /* IntoTheMultiverse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntoTheMultiverse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB77A36C282491A3005828F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -150,8 +152,9 @@
 		DB5DFD3F2836D80500038FB5 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				DB9762E42835E25D000E9ED3 /* PersistenceManager.swift */,
 				DB5DFD402836D83700038FB5 /* Persistence.xcdatamodeld */,
+				DB9762E42835E25D000E9ED3 /* PersistenceManager.swift */,
+				DB2F3E492836FC5D003310CC /* MockPersistenceManager.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -512,8 +515,9 @@
 				DB7D910528282595006D5AF4 /* CryptoKitHelper.swift in Sources */,
 				DB77A384282491A5005828F6 /* NetworkProviderTests.swift in Sources */,
 				DBBC142928298D15007F47F2 /* RouterTests.swift in Sources */,
-				DB2F3E472836E99F003310CC /* Persistence.xcdatamodeld in Sources */,
+				DB2F3E482836FB71003310CC /* Persistence.xcdatamodeld in Sources */,
 				DB7D90F9282719AC006D5AF4 /* ResponseData.swift in Sources */,
+				DB2F3E4A2836FC5D003310CC /* MockPersistenceManager.swift in Sources */,
 				DB2F3E462836E961003310CC /* PersistenceManager.swift in Sources */,
 				DBBC14352829CA70007F47F2 /* Thumbnail.swift in Sources */,
 				DB9762DB283576B3000E9ED3 /* CharacterListCellViewModel.swift in Sources */,
