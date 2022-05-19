@@ -14,13 +14,15 @@ final class CharactersViewController: UIViewController, ActivityPresentable, Err
     // MARK: - Properties
     private let tableView = UITableView()
     private let cellIdentifier = Constants.UI.Cells.characterCell
-    private var viewModel: CharactersViewModel
+    private let persistenceManager: PersistenceHandler
+    private let viewModel: CharactersViewModel
     private var subscriptions = Set<AnyCancellable>()
     
     // MARK: - Initializer
     
-    init(with viewModel: CharactersViewModel) {
+    init(with viewModel: CharactersViewModel, persistenceManager: PersistenceHandler) {
         self.viewModel = viewModel
+        self.persistenceManager = persistenceManager
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -116,7 +118,7 @@ final class CharactersViewController: UIViewController, ActivityPresentable, Err
             return
         }
         
-        let viewModel = CharacterDetailViewModel(characterId: characterId)
+        let viewModel = CharacterDetailViewModel(characterId: characterId, persistenceManager: persistenceManager)
         Router(navigationController).navigate(to: .characterDetail(viewModel: viewModel))
     }
 }

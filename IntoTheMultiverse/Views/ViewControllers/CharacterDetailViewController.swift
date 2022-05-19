@@ -16,7 +16,9 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
     private let viewModel: CharacterDetailViewModel
     private var subscriptions = Set<AnyCancellable>()
     private let imageView = UIImageView()
+    private let btnFavorite = UIButton(type: .custom)
     private let lblDescription = UILabel()
+    private let ctMargin = Constants.UI.margin
     
     // MARK: - Initializer
     
@@ -68,6 +70,11 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
                 }
             })
             .store(in: &subscriptions)
+        
+        viewModel.$isFavorite
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in self?.setupButtonImage(for: $0) }
+            .store(in: &subscriptions)
     }
     
     // MARK: - UI methods
@@ -75,6 +82,7 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
     private func setupUI() {
         view.backgroundColor = .systemBackground
         setupImageView()
+        setupButtonFavorite()
         setupEasterEggInteraction()
         setupLabelDescription()
     }
@@ -90,19 +98,34 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
         imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
     }
     
+    private func setupButtonFavorite() {
+        imageView.addSubview(btnFavorite)
+        btnFavorite.translatesAutoresizingMaskIntoConstraints = false
+        
+        btnFavorite.topAnchor.constraint(equalTo: imageView.topAnchor, constant: ctMargin).isActive = true
+        btnFavorite.rightAnchor.constraint(equalTo: imageView.rightAnchor, constant: -ctMargin).isActive = true
+        
+        let btnAction = UIAction { [weak self] _ in
+            self?.viewModel.handleFavoritesTap()
+        }
+        btnFavorite.addAction(btnAction, for: .touchUpInside)
+    }
+    
     private func setupLabelDescription() {
         view.addSubview(lblDescription)
         lblDescription.translatesAutoresizingMaskIntoConstraints = false
         
-        lblDescription.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: Constants.UI.margin).isActive = true
-        lblDescription.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Constants.UI.margin).isActive = true
-        lblDescription.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -Constants.UI.margin).isActive = true
+        lblDescription.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: ctMargin).isActive = true
+        lblDescription.leftAnchor.constraint(equalTo: view.leftAnchor, constant: ctMargin).isActive = true
+        lblDescription.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -ctMargin).isActive = true
         
         lblDescription.textAlignment = .justified
         lblDescription.numberOfLines = 0
         lblDescription.font = .preferredFont(forTextStyle: .body)
         lblDescription.adjustsFontForContentSizeCategory = true
     }
+    
+    // MARK: - Combine methods
     
     private func updateActivityIndicatorState(isLoading: Bool) {
         isLoading ? showActivityIndicator() : hideActivityIndicator()
@@ -112,10 +135,16 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
         guard let comicCharacter = comicCharacter else {
             return
         }
-
+        
         title = comicCharacter.name
         imageView.kf.setImage(with: comicCharacter.thumbnail.url(for: .original))
         lblDescription.text = comicCharacter.description
+    }
+    
+    private func setupButtonImage(for isFavorite: Bool) {
+        let imageName = isFavorite ? "star.fill" : "star"
+        let btnImage = UIImage(systemName: imageName)
+        btnFavorite.setImage(btnImage, for: .normal)
     }
 }
 

@@ -72,6 +72,7 @@ struct Constants {
         static let ok = "Ok"
         static let networkErrorMessage = "Network connection error. Please check your connection and retry."
         static let defaultErrorMessage = "Something happened. Please try again."
+        static let cantUpdateFavoriteErrorMessage = "Couldn't update favorite. Please try again."
     }
     
     // MARK: - EasterEgg constants
