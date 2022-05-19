@@ -15,6 +15,9 @@ import Foundation
     @Published private(set) var isLoading = false
     @Published private(set) var comicCharacters = [ComicCharacter]()
     @Published private(set) var alertMessage: String?
+    private var isFirstLoad: Bool {
+        comicCharacters.isEmpty
+    }
     
     // MARK: - Initializer
     
@@ -24,8 +27,23 @@ import Foundation
     
     // MARK: - Load comic characters
     
-    func loadComicCharacters() async {
-        guard comicCharacters.isEmpty else {
+    func loadFirstComicCharacters() async {
+        guard isFirstLoad else {
+            return
+        }
+        
+        await loadComicCharacters()
+    }
+    
+    func loadMoreComicCharactersIfNeeded(for indexPath: IndexPath) async {
+        let startPaginationIndex = comicCharacters.count - Constants.API.paginationBottomIndex
+        if startPaginationIndex <= indexPath.row {
+            await loadComicCharacters()
+        }
+    }
+    
+    private func loadComicCharacters() async {
+        guard !isLoading else {
             return
         }
         
@@ -33,7 +51,8 @@ import Foundation
         
         do {
             isLoading = true
-            comicCharacters = try await networkService.getCharacters()
+            let newComicCharacters = try await networkService.getCharacters(offsetBy: comicCharacters.count)
+            comicCharacters.append(contentsOf: newComicCharacters)
         } catch NetworkProviderError.noConnection {
             alertMessage = Constants.ViewsText.networkErrorMessage
             NSLog("CharactersViewModel: NetworkProviderError.noConnection")

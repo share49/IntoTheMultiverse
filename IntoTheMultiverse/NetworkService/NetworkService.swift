@@ -21,8 +21,10 @@ struct NetworkService: NetworkProvider {
     
     // MARK: - NetworkProvider
     
-    func getCharacters() async throws -> [ComicCharacter] {
-        let requiredQueryItems = try Endpoint.buildRequiredQueryItems()
+    func getCharacters(offsetBy offset: Int) async throws -> [ComicCharacter] {
+        var requiredQueryItems = try Endpoint.buildRequiredQueryItems()
+        requiredQueryItems.append(URLQueryItem(name: Constants.API.QueryItems.offset, value: "\(offset)"))
+        
         let url = Endpoint.comicCharacters(with: requiredQueryItems).url
         let characterResponse: CharacterResponse = try await getAndDecode(url: url)
         return characterResponse.data.comicCharacters

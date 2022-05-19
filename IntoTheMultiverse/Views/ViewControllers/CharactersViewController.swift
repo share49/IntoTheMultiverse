@@ -46,7 +46,7 @@ final class CharactersViewController: UIViewController, ActivityPresentable, Err
         deselectTableViewRow()
         
         Task {
-            await viewModel.loadComicCharacters()
+            await viewModel.loadFirstComicCharacters()
         }
     }
     
@@ -129,6 +129,12 @@ extension CharactersViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.comicCharacters.count
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        Task {
+            await viewModel.loadMoreComicCharactersIfNeeded(for: indexPath)
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

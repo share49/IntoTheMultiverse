@@ -22,6 +22,8 @@ struct Constants {
         static let scheme = "https"
         static let host = "gateway.marvel.com"
         
+        static let paginationBottomIndex = 5
+        
         struct Path {
             
             static let characters = "v1/public/characters"
@@ -32,6 +34,7 @@ struct Constants {
             static let timestamp = "ts"
             static let apiKey = "apikey"
             static let hash = "hash"
+            static let offset = "offset"
         }
         
         struct ErrorCodes {

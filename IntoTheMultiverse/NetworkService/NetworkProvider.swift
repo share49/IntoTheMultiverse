@@ -17,7 +17,7 @@ enum NetworkProviderError: Error {
 
 protocol NetworkProvider {
     
-    func getCharacters() async throws -> [ComicCharacter]
+    func getCharacters(offsetBy offset: Int) async throws -> [ComicCharacter]
     func getCharacter(for id: Int) async throws -> ComicCharacter
 }
 
