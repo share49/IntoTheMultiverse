@@ -18,6 +18,9 @@ import Foundation
     @Published private(set) var isLoading = false
     @Published private(set) var alertMessage: String?
     @Published private(set) var isFavorite = false
+    var comicsCount: Int {
+        comicCharacter?.comics.items.count ?? 0
+    }
     
     // MARK: - Initializer
     
@@ -64,5 +67,11 @@ import Foundation
             alertMessage = Constants.ViewsText.cantUpdateFavoriteErrorMessage
             NSLog("CharacterDetailViewModel: Couldn't remove favorite.")
         }
+    }
+    
+    // MARK: - Properties
+    
+    func comicName(for indexPath: IndexPath) -> String? {
+        comicCharacter?.comics.items[indexPath.row].name
     }
 }

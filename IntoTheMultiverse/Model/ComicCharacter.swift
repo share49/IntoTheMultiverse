@@ -34,7 +34,7 @@ extension ComicCharacter {
         name: "Star-Lord",
         description: "Peter Jason Quill is a Celestial-Human hybrid who was abducted from Earth in 1988",
         thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", fileExtension: "jpg"),
-        comics: Comics(available: 0, returned: 0, items: [])
+        comics: Comics.previewData
     )
 }
 #endif

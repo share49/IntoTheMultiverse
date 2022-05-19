@@ -18,6 +18,8 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
     private let imageView = UIImageView()
     private let btnFavorite = UIButton(type: .custom)
     private let lblDescription = UILabel()
+    private let tableView = UITableView(frame: .zero, style: .insetGrouped)
+    private let cellIdentifier = Constants.UI.Cells.comicCell
     private let ctMargin = Constants.UI.margin
     
     // MARK: - Initializer
@@ -85,6 +87,7 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
         setupButtonFavorite()
         setupEasterEggInteraction()
         setupLabelDescription()
+        setupTableView()
     }
     
     private func setupImageView() {
@@ -123,6 +126,23 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
         lblDescription.numberOfLines = 0
         lblDescription.font = .preferredFont(forTextStyle: .body)
         lblDescription.adjustsFontForContentSizeCategory = true
+        lblDescription.adjustsFontSizeToFitWidth = true
+    }
+    
+    private func setupTableView() {
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+                
+        tableView.topAnchor.constraint(equalTo: lblDescription.bottomAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.heightAnchor.constraint(equalToConstant: Constants.UI.comicsTableViewHeight).isActive = true
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
     }
     
     // MARK: - Combine methods
@@ -139,6 +159,7 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
         title = comicCharacter.name
         imageView.kf.setImage(with: comicCharacter.thumbnail.url(for: .original))
         lblDescription.text = comicCharacter.description
+        tableView.reloadData()
     }
     
     private func setupButtonImage(for isFavorite: Bool) {
@@ -169,5 +190,29 @@ extension CharacterDetailViewController {
         }
         
         Router(navigationController).navigate(to: .easterEggView)
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension CharacterDetailViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.comicsCount
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        cell.textLabel?.text = viewModel.comicName(for: indexPath)
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension CharacterDetailViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

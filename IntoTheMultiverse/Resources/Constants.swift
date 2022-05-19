@@ -56,10 +56,12 @@ struct Constants {
         struct Cells {
             
             static let characterCell = "characterCell"
+            static let comicCell = "comicCell"
         }
         
         static let margin: CGFloat = 12
         static let cellImageHeight: CGFloat = 80
+        static let comicsTableViewHeight: CGFloat = 200
     }
     
     // MARK: - ViewsText constants

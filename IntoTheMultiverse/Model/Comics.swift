@@ -21,3 +21,10 @@ struct Comics: Decodable {
         case available, returned, items
     }
 }
+
+#if DEBUG
+extension Comics {
+    
+    static let previewData = Comics(available: 2, returned: 2, items: [Item(name: "Volume 1"), Item(name: "Volume 2")])
+}
+#endif
