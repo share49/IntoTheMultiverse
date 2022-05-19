@@ -12,6 +12,7 @@ To fetch data from the API you will need to get the API keys for free on: https:
 - Improve the UI in both UIKit views and SwiftUI
 - View controllers: Retry loading on failure
 - Characters view controller: Add pagination
+- Comics list: Add pagination
 
 ## Contributing
 
