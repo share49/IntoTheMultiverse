@@ -7,7 +7,6 @@
 
 import UIKit
 import Combine
-import Kingfisher
 
 final class CharactersViewController: UIViewController, ActivityPresentable, ErrorPresentable {
     

@@ -32,6 +32,7 @@ struct Thumbnail: Decodable {
     
     // MARK: - Methods
     
+    /// Thumbnail URL for the specific size.
     func url(for thumbnailSize: ThumbnailSize) -> URL? {
         let urlString: String
         

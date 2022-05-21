@@ -10,6 +10,8 @@ import CryptoKit
 
 struct CryptoKitHelper {
     
+    // MARK: - Enums
+    
     enum CryptoError: Error {
         case invalidString
     }

@@ -10,7 +10,7 @@ import CoreData
 
 protocol PersistenceHandler {
     func isFavorite(_ id: Int) -> Bool
-    func saveFavoriteState(for id: Int, isFavorite: Bool) throws
+    func saveFavoriteState(_ isFavorite: Bool, for id: Int) throws
 }
 
 struct PersistenceManager {
@@ -43,7 +43,7 @@ extension PersistenceManager: PersistenceHandler {
         fetchFavoriteCoreDataObject(for: id, in: container.viewContext)?.isFavorite ?? false
     }
     
-    func saveFavoriteState(for id: Int, isFavorite: Bool) throws {
+    func saveFavoriteState(_ isFavorite: Bool, for id: Int) throws {
         let context = container.viewContext
         
         if let favorite = fetchFavoriteCoreDataObject(for: id, in: context) {
@@ -68,8 +68,7 @@ extension PersistenceManager: PersistenceHandler {
             return favorites.first
         } catch {
             logger.error("Unable to execute fetch request, \(error)")
+            return nil
         }
-        
-        return nil
     }
 }

@@ -53,7 +53,7 @@ struct Constants {
     
     // MARK: - UI constants
     
-    /// UI constants: TableView cells
+    /// UI constants: TableView cells..
     struct UI {
         
         struct Cells {
@@ -86,7 +86,8 @@ struct Constants {
     struct EasterEgg {
         
         static let imageUrl = "https://terrigen-cdn-dev.marvel.com/content/prod/1x/doctorstrangeinthemultiverseofmadness_lob_crd_02_3.jpg"
-        static let title = "Doctor Strange in the Multiverse of Madness (May 6, 2022)"
+        static let header = "Doctor Strange in the Multiverse of Madness (May 6, 2022)"
+        static let title = "Easter🥚"
         static let rotation: CGFloat = 360
         static let rotationDuration: Double = 1
     }

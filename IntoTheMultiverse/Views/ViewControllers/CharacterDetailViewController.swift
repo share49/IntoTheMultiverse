@@ -22,6 +22,7 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
     private let tableView = UITableView(frame: .zero, style: .insetGrouped)
     private let cellIdentifier = Constants.UI.Cells.comicCell
     private let ctMargin = Constants.UI.margin
+    private let lblDescriptionNumberOfLines = 0
     
     // MARK: - Initializer
     
@@ -43,10 +44,6 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
         
         setupUI()
         setupBindings()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
         Task {
             await viewModel.loadComicCharacter()
@@ -125,7 +122,7 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
         lblDescription.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -ctMargin).isActive = true
         
         lblDescription.textAlignment = .justified
-        lblDescription.numberOfLines = 0
+        lblDescription.numberOfLines = lblDescriptionNumberOfLines
         lblDescription.font = .preferredFont(forTextStyle: .body)
         lblDescription.adjustsFontForContentSizeCategory = true
         lblDescription.adjustsFontSizeToFitWidth = true
@@ -134,7 +131,7 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
     private func setupTableView() {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-                
+        
         tableView.topAnchor.constraint(equalTo: lblDescription.bottomAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
@@ -174,6 +171,7 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
 // MARK: - EasterEgg
 
 extension CharacterDetailViewController {
+    
     private func setupEasterEggInteraction() {
         let tapGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(showEasterEggView(_:)))
         tapGestureRecognizer.minimumPressDuration = 3

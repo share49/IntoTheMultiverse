@@ -18,7 +18,7 @@ struct EasterEggView: View {
     
     var body: some View {
         VStack {
-            Text(Constants.EasterEgg.title)
+            Text(Constants.EasterEgg.header)
                 .font(.title)
             
             KFImage(URL(string: Constants.EasterEgg.imageUrl))
@@ -32,7 +32,7 @@ struct EasterEggView: View {
             
             Spacer()
         }
-        .navigationTitle("Easter🥚")
+        .navigationTitle(Constants.EasterEgg.title)
         .padding()
     }
 }

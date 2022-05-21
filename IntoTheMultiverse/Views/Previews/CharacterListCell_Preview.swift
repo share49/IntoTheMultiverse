@@ -19,7 +19,6 @@ struct CharacterListCellRepresentable: UIViewRepresentable {
     }
 }
 
-
 struct CharacterListCell_Preview: PreviewProvider {
     static var previews: some View {
         CharacterListCellRepresentable()

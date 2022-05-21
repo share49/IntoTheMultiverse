@@ -63,7 +63,7 @@ final class CharacterDetailViewModel {
     
     private func updateFavorite(_ isFavorite: Bool) {
         do {
-            try persistenceManager.saveFavoriteState(for: characterId, isFavorite: isFavorite)
+            try persistenceManager.saveFavoriteState(isFavorite, for: characterId)
             self.isFavorite = isFavorite
         } catch {
             alertMessage = Constants.ViewsText.cantUpdateFavoriteErrorMessage
