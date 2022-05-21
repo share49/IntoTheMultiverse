@@ -16,6 +16,7 @@ final class CharactersViewModel {
     @Published private(set) var isLoading = false
     @Published private(set) var comicCharacters = [ComicCharacter]()
     @Published private(set) var alertMessage: String?
+    private var totalCharacters = 1
     private var isFirstLoad: Bool {
         comicCharacters.isEmpty
     }
@@ -49,12 +50,19 @@ final class CharactersViewModel {
             return
         }
         
+        let offsetBy = comicCharacters.count
+        
+        guard offsetBy < totalCharacters else {
+            return
+        }
+        
         defer { isLoading = false }
         
         do {
             isLoading = true
-            let newComicCharacters = try await networkService.getCharacters(offsetBy: comicCharacters.count)
-            comicCharacters.append(contentsOf: newComicCharacters)
+            let responseData = try await networkService.getCharacters(offsetBy: offsetBy)
+            totalCharacters = responseData.total
+            comicCharacters.append(contentsOf: responseData.comicCharacters)
         } catch NetworkProviderError.noConnection {
             alertMessage = Constants.ViewsText.networkErrorMessage
             logger.error("CharactersViewModel: NetworkProviderError.noConnection")

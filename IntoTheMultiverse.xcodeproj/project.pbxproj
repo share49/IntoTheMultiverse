@@ -10,6 +10,7 @@
 		DB2F3E462836E961003310CC /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9762E42835E25D000E9ED3 /* PersistenceManager.swift */; };
 		DB2F3E482836FB71003310CC /* Persistence.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB5DFD402836D83700038FB5 /* Persistence.xcdatamodeld */; };
 		DB2F3E4A2836FC5D003310CC /* MockPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3E492836FC5D003310CC /* MockPersistenceManager.swift */; };
+		DB36CB872839492F00D3A6EC /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB40DDFF28387262006D89A9 /* Logger.swift */; };
 		DB40DE0028387262006D89A9 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB40DDFF28387262006D89A9 /* Logger.swift */; };
 		DB5DFD432836D83700038FB5 /* Persistence.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB5DFD402836D83700038FB5 /* Persistence.xcdatamodeld */; };
 		DB77A36D282491A3005828F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB77A36C282491A3005828F6 /* AppDelegate.swift */; };
@@ -27,9 +28,9 @@
 		DB7D90F02826DBD4006D5AF4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90EF2826DBD4006D5AF4 /* Constants.swift */; };
 		DB7D90F22826F8DC006D5AF4 /* characters.json in Resources */ = {isa = PBXBuildFile; fileRef = DB7D90F12826F8DC006D5AF4 /* characters.json */; };
 		DB7D90F52827188E006D5AF4 /* CharacterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90F42827188E006D5AF4 /* CharacterResponse.swift */; };
-		DB7D90F7282718D1006D5AF4 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90F6282718D1006D5AF4 /* ResponseData.swift */; };
+		DB7D90F7282718D1006D5AF4 /* CharactersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90F6282718D1006D5AF4 /* CharactersData.swift */; };
 		DB7D90F8282719AA006D5AF4 /* CharacterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90F42827188E006D5AF4 /* CharacterResponse.swift */; };
-		DB7D90F9282719AC006D5AF4 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90F6282718D1006D5AF4 /* ResponseData.swift */; };
+		DB7D90F9282719AC006D5AF4 /* CharactersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90F6282718D1006D5AF4 /* CharactersData.swift */; };
 		DB7D90FA28271A14006D5AF4 /* characters.json in Resources */ = {isa = PBXBuildFile; fileRef = DB7D90F12826F8DC006D5AF4 /* characters.json */; };
 		DB7D90FC28271D7D006D5AF4 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90FB28271D7D006D5AF4 /* NetworkProvider.swift */; };
 		DB7D90FD28271D7E006D5AF4 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D90FB28271D7D006D5AF4 /* NetworkProvider.swift */; };
@@ -105,7 +106,7 @@
 		DB7D90EF2826DBD4006D5AF4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DB7D90F12826F8DC006D5AF4 /* characters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = characters.json; sourceTree = "<group>"; };
 		DB7D90F42827188E006D5AF4 /* CharacterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterResponse.swift; sourceTree = "<group>"; };
-		DB7D90F6282718D1006D5AF4 /* ResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
+		DB7D90F6282718D1006D5AF4 /* CharactersData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersData.swift; sourceTree = "<group>"; };
 		DB7D90FB28271D7D006D5AF4 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		DB7D90FE28272810006D5AF4 /* CharactersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModel.swift; sourceTree = "<group>"; };
 		DB7D910128272AF6006D5AF4 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -247,7 +248,7 @@
 			children = (
 				DB7D90EB2826D936006D5AF4 /* ComicCharacter.swift */,
 				DB7D90F42827188E006D5AF4 /* CharacterResponse.swift */,
-				DB7D90F6282718D1006D5AF4 /* ResponseData.swift */,
+				DB7D90F6282718D1006D5AF4 /* CharactersData.swift */,
 				DBBC142C2829B01C007F47F2 /* Thumbnail.swift */,
 				DB9762DC2835AAE1000E9ED3 /* Comics.swift */,
 				DB9762DE2835ACBE000E9ED3 /* Item.swift */,
@@ -475,7 +476,7 @@
 				DB7D90EC2826D936006D5AF4 /* ComicCharacter.swift in Sources */,
 				DB7D911828288A1E006D5AF4 /* CharacterDetailViewModel.swift in Sources */,
 				DB40DE0028387262006D89A9 /* Logger.swift in Sources */,
-				DB7D90F7282718D1006D5AF4 /* ResponseData.swift in Sources */,
+				DB7D90F7282718D1006D5AF4 /* CharactersData.swift in Sources */,
 				DB9762D72835646F000E9ED3 /* CharacterListCell_Preview.swift in Sources */,
 				DB976BAE282B43F80049498A /* ErrorPresentable.swift in Sources */,
 				DB7D910C28287453006D5AF4 /* Destination.swift in Sources */,
@@ -505,6 +506,7 @@
 				DB9762E12835AD3E000E9ED3 /* Item.swift in Sources */,
 				DB976BB8282B615A0049498A /* ActivityPresentable.swift in Sources */,
 				DB976BB6282B61480049498A /* CharacterDetailViewController.swift in Sources */,
+				DB36CB872839492F00D3A6EC /* Logger.swift in Sources */,
 				DB7D90E52826D10F006D5AF4 /* MockNetworkService.swift in Sources */,
 				DB7D91032828257E006D5AF4 /* Endpoint.swift in Sources */,
 				DB976BB9282B615C0049498A /* ErrorPresentable.swift in Sources */,
@@ -520,7 +522,7 @@
 				DB77A384282491A5005828F6 /* NetworkProviderTests.swift in Sources */,
 				DBBC142928298D15007F47F2 /* RouterTests.swift in Sources */,
 				DB2F3E482836FB71003310CC /* Persistence.xcdatamodeld in Sources */,
-				DB7D90F9282719AC006D5AF4 /* ResponseData.swift in Sources */,
+				DB7D90F9282719AC006D5AF4 /* CharactersData.swift in Sources */,
 				DB2F3E4A2836FC5D003310CC /* MockPersistenceManager.swift in Sources */,
 				DB2F3E462836E961003310CC /* PersistenceManager.swift in Sources */,
 				DBBC14352829CA70007F47F2 /* Thumbnail.swift in Sources */,

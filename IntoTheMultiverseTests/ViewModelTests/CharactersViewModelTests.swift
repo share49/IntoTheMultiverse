@@ -14,7 +14,7 @@ final class CharactersViewModelTests: XCTestCase {
     
     func testLoadComicCharacters() async {
         // Arrange
-        let viewModel = CharactersViewModel(with: MockNetworkService())
+        let viewModel = CharactersViewModel(with: MockNetworkService(), logger: MLogger())
         
         // Act
         await viewModel.loadFirstComicCharacters()
@@ -25,7 +25,7 @@ final class CharactersViewModelTests: XCTestCase {
     
     func testGetCharacter() async {
         // Arrange
-        let viewModel = CharactersViewModel(with: MockNetworkService())
+        let viewModel = CharactersViewModel(with: MockNetworkService(), logger: MLogger())
         let indexPath = IndexPath(row: 0, section: 0)
         
         // Act
@@ -39,7 +39,7 @@ final class CharactersViewModelTests: XCTestCase {
     
     func testGetCharacterId() async {
         // Arrange
-        let viewModel = CharactersViewModel(with: MockNetworkService())
+        let viewModel = CharactersViewModel(with: MockNetworkService(), logger: MLogger())
         let indexPath = IndexPath(row: 0, section: 0)
         
         // Act

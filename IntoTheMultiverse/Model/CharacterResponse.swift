@@ -11,7 +11,7 @@ struct CharacterResponse: Decodable {
     
     // MARK: - Properties
     
-    let data: ResponseData
+    let data: CharactersData
     
     // MARK: - Coding keys
     

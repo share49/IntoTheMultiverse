@@ -21,7 +21,7 @@ final class CharacterDetailViewModelTests: XCTestCase {
     
     func testLoadComicCharacter() async {
         // Arrange
-        let viewModel = CharacterDetailViewModel(with: mockNetworkService, characterId: validCharacterId, persistenceManager: persistenceManager)
+        let viewModel = CharacterDetailViewModel(with: mockNetworkService, characterId: validCharacterId, persistenceManager: persistenceManager, logger: MLogger())
         
         // Act
         await viewModel.loadComicCharacter()
@@ -33,8 +33,8 @@ final class CharacterDetailViewModelTests: XCTestCase {
     
     func testLoadComicCharacterFailure() async {
         // Arrange
-        let viewModel = CharacterDetailViewModel(with: mockNetworkService, characterId: invalidCharacterId, persistenceManager: persistenceManager)
-        
+        let viewModel = CharacterDetailViewModel(with: mockNetworkService, characterId: invalidCharacterId, persistenceManager: persistenceManager, logger: MLogger())
+
         // Act
         await viewModel.loadComicCharacter()
         
@@ -44,8 +44,8 @@ final class CharacterDetailViewModelTests: XCTestCase {
     
     func testComicsCount() async {
         // Arrange
-        let viewModel = CharacterDetailViewModel(with: mockNetworkService, characterId: validCharacterId, persistenceManager: persistenceManager)
-        
+        let viewModel = CharacterDetailViewModel(with: mockNetworkService, characterId: validCharacterId, persistenceManager: persistenceManager, logger: MLogger())
+
         // Act
         await viewModel.loadComicCharacter()
         let comicsCount = viewModel.comicsCount
@@ -57,8 +57,8 @@ final class CharacterDetailViewModelTests: XCTestCase {
     func testComicName() async {
         // Arrange
         let indexPath = IndexPath(row: 0, section: 0)
-        let viewModel = CharacterDetailViewModel(with: mockNetworkService, characterId: validCharacterId, persistenceManager: persistenceManager)
-        
+        let viewModel = CharacterDetailViewModel(with: mockNetworkService, characterId: validCharacterId, persistenceManager: persistenceManager, logger: MLogger())
+
         // Act
         await viewModel.loadComicCharacter()
         let name = viewModel.comicName(for: indexPath)!

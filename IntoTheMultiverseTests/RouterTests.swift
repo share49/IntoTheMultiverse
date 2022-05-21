@@ -16,10 +16,10 @@ final class RouterTests: XCTestCase {
         // Arrange
         let navigationController = UINavigationController(rootViewController: UIViewController())
         let presistanceManager = MockPersistenceManager()
-        let viewModel = CharacterDetailViewModel(characterId: 4, persistenceManager: presistanceManager)
+        let viewModel = CharacterDetailViewModel(characterId: 4, persistenceManager: presistanceManager, logger: MLogger())
         
         // Act
-        Router(navigationController).navigate(to: .characterDetail(viewModel: viewModel), animated: false)
+        Router(navigationController).navigate(to: .characterDetail(viewModel: viewModel, logger: MLogger()), animated: false)
         
         // Assert
         XCTAssertEqual(navigationController.viewControllers.count, 2)

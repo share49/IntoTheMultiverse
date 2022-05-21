@@ -19,10 +19,13 @@ final class NetworkProviderTests: XCTestCase {
     func testGetCharacters() async {
         do {
             // Act
-            let characters = try await mockNetworkService.getCharacters(offsetBy: 0)
+            let charactersData = try await mockNetworkService.getCharacters(offsetBy: 0)
+            let characters = charactersData.comicCharacters
+            let numberOfCharacters = charactersData.total
             
             // Assert
             XCTAssertEqual(characters.count, 20)
+            XCTAssertEqual(numberOfCharacters, 1562)
             
             guard let firstCharacter = characters.first, let lastCharacter = characters.last else {
                 XCTFail("Can't get first and last characters")
