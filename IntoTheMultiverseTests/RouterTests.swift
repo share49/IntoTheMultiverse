@@ -1,5 +1,5 @@
 //
-//  RouterTests.swift
+//  CoordinatorTests.swift
 //  IntoTheMultiverseTests
 //
 //  Created by Roger Pintó Diaz on 5/9/22.
@@ -8,21 +8,35 @@
 import XCTest
 @testable import IntoTheMultiverse
 
-final class RouterTests: XCTestCase {
+final class CoordinatorTests: XCTestCase {
     
     // MARK: - Tests
     
-    func testRouter() {
+    func testCoordinatorStart() {
         // Arrange
-        let navigationController = UINavigationController(rootViewController: UIViewController())
-        let presistanceManager = MockPersistenceManager()
-        let viewModel = CharacterDetailViewModel(characterId: 4, persistenceManager: presistanceManager, logger: MLogger())
+        let navigationController = UINavigationController()
+        let coordinator = MainCoordinator(navigationController: navigationController)
         
         // Act
-        Router(navigationController).navigate(to: .characterDetail(viewModel: viewModel, logger: MLogger()), animated: false)
+        coordinator.start()
         
         // Assert
-        XCTAssertEqual(navigationController.viewControllers.count, 2)
+        XCTAssertEqual(navigationController.viewControllers.count, 1)
+        let presentedVC = navigationController.viewControllers.last!
+        XCTAssert(presentedVC is CharactersViewController)
+    }
+    
+    func testNavigateToCharacterDetailVC() {
+        // Arrange
+        let navigationController = UINavigationController()
+        let coordinator = MainCoordinator(navigationController: navigationController)
+        let logger = MLogger()
+        
+        // Act
+        coordinator.characterDetail(characterId: 0, persistenceManager: PersistenceManager(with: logger), logger: logger)
+        
+        // Assert
+        XCTAssertEqual(navigationController.viewControllers.count, 1)
         let presentedVC = navigationController.viewControllers.last!
         XCTAssert(presentedVC is CharacterDetailViewController)
     }

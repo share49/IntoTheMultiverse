@@ -18,11 +18,13 @@ final class CharactersViewController: UIViewController, ActivityPresentable, Err
     private let logger: LogHandler
     private let viewModel: CharactersViewModel
     private var subscriptions = Set<AnyCancellable>()
+    private weak var coordinator: MainCoordinator?
     
     // MARK: - Initializer
     
-    init(with viewModel: CharactersViewModel, persistenceManager: PersistenceHandler, logger: LogHandler) {
+    init(with viewModel: CharactersViewModel, coordinator: MainCoordinator, persistenceManager: PersistenceHandler, logger: LogHandler) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         self.persistenceManager = persistenceManager
         self.logger = logger
         
@@ -111,19 +113,6 @@ final class CharactersViewController: UIViewController, ActivityPresentable, Err
         
         tableView.deselectRow(at: indexPathForSelectedRow, animated: true)
     }
-    
-    // MARK: - Router methods
-    
-    /// Navigates to CharacterDetailViewController
-    private func showCharacterDetailView(for characterId: Int) {
-        guard let navigationController = navigationController else {
-            logger.error("CharactersVC: Unable to get navigationController")
-            return
-        }
-        
-        let viewModel = CharacterDetailViewModel(characterId: characterId, persistenceManager: persistenceManager, logger: logger)
-        Router(navigationController).navigate(to: .characterDetail(viewModel: viewModel, logger: logger))
-    }
 }
 
 // MARK: - UITableViewDataSource
@@ -151,7 +140,7 @@ extension CharactersViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let characterId = viewModel.getCharacterId(for: indexPath)
-        showCharacterDetailView(for: characterId)
+        coordinator?.characterDetail(characterId: characterId, persistenceManager: persistenceManager, logger: logger)
     }
 }
 

@@ -14,7 +14,7 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
     // MARK: - Properties
     
     private let viewModel: CharacterDetailViewModel
-    private let logger: LogHandler
+    private weak var coordinator: MainCoordinator?
     private var subscriptions = Set<AnyCancellable>()
     private let imageView = UIImageView()
     private let btnFavorite = UIButton(type: .custom)
@@ -25,9 +25,9 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
     
     // MARK: - Initializer
     
-    init(with viewModel: CharacterDetailViewModel, logger: LogHandler) {
+    init(with viewModel: CharacterDetailViewModel, coordinator: MainCoordinator) {
         self.viewModel = viewModel
-        self.logger = logger
+        self.coordinator = coordinator
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -186,12 +186,7 @@ extension CharacterDetailViewController {
             return
         }
         
-        guard let navigationController = navigationController else {
-            logger.error("CharacterDetailVC: Unable to get navigationController")
-            return
-        }
-        
-        Router(navigationController).navigate(to: .easterEggView)
+        coordinator?.easterEgg()
     }
 }
 
