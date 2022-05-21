@@ -11,7 +11,7 @@ struct MockPersistenceManager {
     
     // MARK: - Properties
     
-    let stubIsFavorite: Bool
+    let mockIsFavorite: Bool
 }
 
 // MARK: - PersistenceHandler
@@ -19,7 +19,7 @@ struct MockPersistenceManager {
 extension MockPersistenceManager: PersistenceHandler {
     
     func isFavorite(_ id: Int) -> Bool {
-        stubIsFavorite
+        mockIsFavorite
     }
     
     func saveFavoriteState(_ isFavorite: Bool, for id: Int) throws {

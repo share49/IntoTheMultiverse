@@ -13,7 +13,7 @@ final class CharacterDetailViewModelTests: XCTestCase {
     // MARK: - Properties
     
     private let mockNetworkService = MockNetworkService()
-    private let persistenceManager = MockPersistenceManager(stubIsFavorite: false)
+    private let persistenceManager = MockPersistenceManager(mockIsFavorite: false)
     private let logger = MLogger()
     private let validCharacterId = 1011334
     private let invalidCharacterId = 0
@@ -71,7 +71,7 @@ final class CharacterDetailViewModelTests: XCTestCase {
     func testHandleFavoritesTap() async {
         // Arrange
         let expectedIsFavorite = false
-        let mockPersistenceManager = MockPersistenceManager(stubIsFavorite: expectedIsFavorite)
+        let mockPersistenceManager = MockPersistenceManager(mockIsFavorite: expectedIsFavorite)
         let viewModel = CharacterDetailViewModel(with: mockNetworkService, characterId: validCharacterId, persistenceManager: mockPersistenceManager, logger: logger)
         
         // Act

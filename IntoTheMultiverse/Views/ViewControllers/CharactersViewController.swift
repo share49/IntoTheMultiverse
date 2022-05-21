@@ -11,6 +11,7 @@ import Combine
 final class CharactersViewController: UIViewController, ActivityPresentable, ErrorPresentable {
     
     // MARK: - Properties
+    
     private let tableView = UITableView()
     private let cellIdentifier = Constants.UI.Cells.characterCell
     private let persistenceManager: PersistenceHandler
