@@ -38,7 +38,11 @@ final class CharactersViewModel {
         await loadComicCharacters()
     }
     
-    func loadMoreComicCharactersIfNeeded(for indexPath: IndexPath) async {
+    func loadMoreComicCharactersIfNeeded(for indexPaths: [IndexPath]) async {
+        guard let indexPath = indexPaths.last else {
+            return
+        }
+        
         let startPaginationIndex = comicCharacters.count - Constants.API.paginationBottomIndex
         if startPaginationIndex <= indexPath.row {
             await loadComicCharacters()

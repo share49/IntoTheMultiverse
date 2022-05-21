@@ -95,6 +95,7 @@ final class CharactersViewController: UIViewController, ActivityPresentable, Err
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.prefetchDataSource = self
         
         tableView.register(CharacterListCell.self, forCellReuseIdentifier: cellIdentifier)
     }
@@ -133,12 +134,6 @@ extension CharactersViewController: UITableViewDataSource {
         viewModel.comicCharacters.count
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        Task {
-            await viewModel.loadMoreComicCharactersIfNeeded(for: indexPath)
-        }
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CharacterListCell else {
             fatalError("Couldn't cast cell as CharacterListCell")
@@ -157,5 +152,16 @@ extension CharactersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let characterId = viewModel.getCharacterId(for: indexPath)
         showCharacterDetailView(for: characterId)
+    }
+}
+
+// MARK: - UITableViewDataSourcePrefetching
+
+extension CharactersViewController: UITableViewDataSourcePrefetching {
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        Task {
+            await viewModel.loadMoreComicCharactersIfNeeded(for: indexPaths)
+        }
     }
 }
