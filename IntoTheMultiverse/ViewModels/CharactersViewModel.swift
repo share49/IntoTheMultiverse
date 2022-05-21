@@ -12,6 +12,7 @@ final class CharactersViewModel {
     // MARK: - Properties
     
     private let networkService: NetworkProvider
+    private let logger: LogHandler
     @Published private(set) var isLoading = false
     @Published private(set) var comicCharacters = [ComicCharacter]()
     @Published private(set) var alertMessage: String?
@@ -21,8 +22,9 @@ final class CharactersViewModel {
     
     // MARK: - Initializer
     
-    init(with networkService: NetworkProvider = NetworkService()) {
+    init(with networkService: NetworkProvider = NetworkService(), logger: LogHandler) {
         self.networkService = networkService
+        self.logger = logger
     }
     
     // MARK: - Load comic characters
@@ -55,10 +57,10 @@ final class CharactersViewModel {
             comicCharacters.append(contentsOf: newComicCharacters)
         } catch NetworkProviderError.noConnection {
             alertMessage = Constants.ViewsText.networkErrorMessage
-            NSLog("CharactersViewModel: NetworkProviderError.noConnection")
+            logger.error("CharactersViewModel: NetworkProviderError.noConnection")
         } catch {
             alertMessage = Constants.ViewsText.defaultErrorMessage
-            NSLog("CharactersViewModel: Error loading comic characters. \(error)")
+            logger.error("CharactersViewModel: Error loading comic characters. \(error)")
         }
     }
     

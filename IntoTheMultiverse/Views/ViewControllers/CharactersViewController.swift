@@ -15,14 +15,16 @@ final class CharactersViewController: UIViewController, ActivityPresentable, Err
     private let tableView = UITableView()
     private let cellIdentifier = Constants.UI.Cells.characterCell
     private let persistenceManager: PersistenceHandler
+    private let logger: LogHandler
     private let viewModel: CharactersViewModel
     private var subscriptions = Set<AnyCancellable>()
     
     // MARK: - Initializer
     
-    init(with viewModel: CharactersViewModel, persistenceManager: PersistenceHandler) {
+    init(with viewModel: CharactersViewModel, persistenceManager: PersistenceHandler, logger: LogHandler) {
         self.viewModel = viewModel
         self.persistenceManager = persistenceManager
+        self.logger = logger
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -114,12 +116,12 @@ final class CharactersViewController: UIViewController, ActivityPresentable, Err
     /// Navigates to CharacterDetailViewController
     private func showCharacterDetailView(for characterId: Int) {
         guard let navigationController = navigationController else {
-            NSLog("Unable to get navigationController")
+            logger.error("CharactersVC: Unable to get navigationController")
             return
         }
         
-        let viewModel = CharacterDetailViewModel(characterId: characterId, persistenceManager: persistenceManager)
-        Router(navigationController).navigate(to: .characterDetail(viewModel: viewModel))
+        let viewModel = CharacterDetailViewModel(characterId: characterId, persistenceManager: persistenceManager, logger: logger)
+        Router(navigationController).navigate(to: .characterDetail(viewModel: viewModel, logger: logger))
     }
 }
 

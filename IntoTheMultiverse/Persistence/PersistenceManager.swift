@@ -17,11 +17,14 @@ struct PersistenceManager {
     
     // MARK: - Properties
     
-    let container: NSPersistentContainer
+    private let container: NSPersistentContainer
+    private let logger: LogHandler
     
     // MARK: - Initializer
     
-    init() {
+    init(with logger: LogHandler) {
+        self.logger = logger
+        
         container = NSPersistentContainer(name: "Persistence")
         container.loadPersistentStores { description, error in
             if let error = error {
@@ -64,7 +67,7 @@ extension PersistenceManager: PersistenceHandler {
             let favorites = try context.fetch(fetchRequest)
             return favorites.first
         } catch {
-            NSLog("Unable to execute fetch request, \(error)")
+            logger.error("Unable to execute fetch request, \(error)")
         }
         
         return nil

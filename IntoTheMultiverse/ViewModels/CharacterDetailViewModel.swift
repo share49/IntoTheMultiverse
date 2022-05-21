@@ -14,6 +14,7 @@ final class CharacterDetailViewModel {
     private let networkService: NetworkProvider
     private let characterId: Int
     private let persistenceManager: PersistenceHandler
+    private let logger: LogHandler
     @Published private(set) var comicCharacter: ComicCharacter?
     @Published private(set) var isLoading = false
     @Published private(set) var alertMessage: String?
@@ -24,10 +25,11 @@ final class CharacterDetailViewModel {
     
     // MARK: - Initializer
     
-    init(with networkService: NetworkProvider = NetworkService(), characterId: Int, persistenceManager: PersistenceHandler) {
+    init(with networkService: NetworkProvider = NetworkService(), characterId: Int, persistenceManager: PersistenceHandler, logger: LogHandler) {
         self.networkService = networkService
         self.characterId = characterId
         self.persistenceManager = persistenceManager
+        self.logger = logger
         
         updateIsFavoriteState()
     }
@@ -42,10 +44,10 @@ final class CharacterDetailViewModel {
             comicCharacter = try await networkService.getCharacter(for: characterId)
         } catch NetworkProviderError.noConnection {
             alertMessage = Constants.ViewsText.networkErrorMessage
-            NSLog("CharacterDetailViewModel: NetworkProviderError.noConnection")
+            logger.error("CharacterDetailViewModel: NetworkProviderError.noConnection")
         } catch {
             alertMessage = Constants.ViewsText.defaultErrorMessage
-            NSLog("CharacterDetailViewModel: Error loading comic character. \(error)")
+            logger.error("CharacterDetailViewModel: Error loading comic character. \(error)")
         }
     }
     
@@ -65,7 +67,7 @@ final class CharacterDetailViewModel {
             self.isFavorite = isFavorite
         } catch {
             alertMessage = Constants.ViewsText.cantUpdateFavoriteErrorMessage
-            NSLog("CharacterDetailViewModel: Couldn't remove favorite.")
+            logger.error("CharacterDetailViewModel: Couldn't remove favorite.")
         }
     }
     

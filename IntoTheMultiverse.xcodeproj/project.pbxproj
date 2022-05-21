@@ -10,6 +10,7 @@
 		DB2F3E462836E961003310CC /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9762E42835E25D000E9ED3 /* PersistenceManager.swift */; };
 		DB2F3E482836FB71003310CC /* Persistence.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB5DFD402836D83700038FB5 /* Persistence.xcdatamodeld */; };
 		DB2F3E4A2836FC5D003310CC /* MockPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3E492836FC5D003310CC /* MockPersistenceManager.swift */; };
+		DB40DE0028387262006D89A9 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB40DDFF28387262006D89A9 /* Logger.swift */; };
 		DB5DFD432836D83700038FB5 /* Persistence.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB5DFD402836D83700038FB5 /* Persistence.xcdatamodeld */; };
 		DB77A36D282491A3005828F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB77A36C282491A3005828F6 /* AppDelegate.swift */; };
 		DB77A36F282491A3005828F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB77A36E282491A3005828F6 /* SceneDelegate.swift */; };
@@ -86,6 +87,7 @@
 
 /* Begin PBXFileReference section */
 		DB2F3E492836FC5D003310CC /* MockPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPersistenceManager.swift; sourceTree = "<group>"; };
+		DB40DDFF28387262006D89A9 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		DB5DFD412836D83700038FB5 /* Persistence.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Persistence.xcdatamodel; sourceTree = "<group>"; };
 		DB77A369282491A3005828F6 /* IntoTheMultiverse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntoTheMultiverse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB77A36C282491A3005828F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				DB7D90E82826D4AB006D5AF4 /* CryptoKitHelper.swift */,
+				DB40DDFF28387262006D89A9 /* Logger.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				DB7D90E32826D102006D5AF4 /* NetworkService.swift in Sources */,
 				DB7D90EC2826D936006D5AF4 /* ComicCharacter.swift in Sources */,
 				DB7D911828288A1E006D5AF4 /* CharacterDetailViewModel.swift in Sources */,
+				DB40DE0028387262006D89A9 /* Logger.swift in Sources */,
 				DB7D90F7282718D1006D5AF4 /* ResponseData.swift in Sources */,
 				DB9762D72835646F000E9ED3 /* CharacterListCell_Preview.swift in Sources */,
 				DB976BAE282B43F80049498A /* ErrorPresentable.swift in Sources */,

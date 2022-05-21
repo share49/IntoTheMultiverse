@@ -10,7 +10,8 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    let persistenceManager = PersistenceManager()
+    lazy private var logger = MLogger()
+    lazy private var persistenceManager = PersistenceManager(with: logger)
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -18,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        let viewController = CharactersViewController(with: CharactersViewModel(), persistenceManager: persistenceManager)
+        let viewController = CharactersViewController(with: CharactersViewModel(logger: logger), persistenceManager: persistenceManager, logger: logger)
         let navigationController = UINavigationController(rootViewController: viewController)
         window.rootViewController = navigationController
         

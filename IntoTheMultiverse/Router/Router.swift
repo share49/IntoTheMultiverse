@@ -39,8 +39,8 @@ struct Router: RouterProtocol {
     /// Makes the destination view controller
     private func makeViewController(for destination: Destination) -> UIViewController {
         switch destination {
-        case .characterDetail(let viewModel):
-            return getCharacterDetailVC(for: viewModel)
+        case .characterDetail(let viewModel, let logger):
+            return getCharacterDetailVC(for: viewModel, logger: logger)
             
         case .easterEggView:
             return getEasterEggView()
@@ -48,8 +48,8 @@ struct Router: RouterProtocol {
     }
     
     /// Creates CharacterDetailViewController for the character id
-    private func getCharacterDetailVC(for viewModel: CharacterDetailViewModel) -> UIViewController {
-        return CharacterDetailViewController(with: viewModel)
+    private func getCharacterDetailVC(for viewModel: CharacterDetailViewModel, logger: LogHandler) -> UIViewController {
+        CharacterDetailViewController(with: viewModel, logger: logger)
     }
     
     /// Creates a HostingController to show the SwiftUI view

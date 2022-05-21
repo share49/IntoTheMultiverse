@@ -14,6 +14,7 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
     // MARK: - Properties
     
     private let viewModel: CharacterDetailViewModel
+    private let logger: LogHandler
     private var subscriptions = Set<AnyCancellable>()
     private let imageView = UIImageView()
     private let btnFavorite = UIButton(type: .custom)
@@ -24,8 +25,9 @@ final class CharacterDetailViewController: UIViewController, ActivityPresentable
     
     // MARK: - Initializer
     
-    init(with viewModel: CharacterDetailViewModel) {
+    init(with viewModel: CharacterDetailViewModel, logger: LogHandler) {
         self.viewModel = viewModel
+        self.logger = logger
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -185,7 +187,7 @@ extension CharacterDetailViewController {
         }
         
         guard let navigationController = navigationController else {
-            NSLog("Unable to get navigationController")
+            logger.error("CharacterDetailVC: Unable to get navigationController")
             return
         }
         

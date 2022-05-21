@@ -9,6 +9,6 @@ import Foundation
 
 enum Destination {
     
-    case characterDetail(viewModel: CharacterDetailViewModel)
+    case characterDetail(viewModel: CharacterDetailViewModel, logger: LogHandler)
     case easterEggView
 }
