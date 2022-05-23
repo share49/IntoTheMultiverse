@@ -7,12 +7,12 @@ To fetch data from the API you will need to get the API keys for free on: https:
 
 ## Technical considerations
 
-In this project, I chose an MVVM architecture with Constructor-based Dependency Injection for testability purposes.
+In this project, I chose an MVVM-C architecture with Constructor-based Dependency Injection for testability purposes.
 I've also used Combine to manage the view's state (Easier to understand what the code is doing and to mantain).
 
 ## Improvements
 
-- Add Protocols to ViewModels to ease testability with a tool like Sourcery and allow it to be decoupled.
+- Add Protocols to ViewModels to ease testability with a tool like Sourcery and allow it to be decoupled
 - Increase test on the view controllers
 - Improve the UI in both UIKit views and SwiftUI
 - View controllers: Retry loading on failure
